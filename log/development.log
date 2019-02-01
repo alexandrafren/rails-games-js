@@ -8561,3 +8561,56 @@ Processing by GamesController#index as HTML
 Completed 200 OK in 154ms (Views: 131.6ms | ActiveRecord: 1.8ms)
 
 
+Started GET "/games" for 127.0.0.1 at 2019-02-01 08:03:28 -0800
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/learn/.rvm/gems/ruby-2.3.6/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by GamesController#index as HTML
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:44
+  Rendered games/index.html.erb within layouts/application (29.4ms)
+Completed 200 OK in 606ms (Views: 574.3ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/users/9" for 127.0.0.1 at 2019-02-01 08:13:55 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:3
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."user_id" = ?[0m  [["user_id", 9]]
+  ↳ app/models/user.rb:22
+  Rendered users/show.html.erb within layouts/application (18.2ms)
+Completed 200 OK in 129ms (Views: 71.0ms | ActiveRecord: 8.0ms)
+
+
+Started GET "/games" for 127.0.0.1 at 2019-02-01 08:13:58 -0800
+Processing by GamesController#index as HTML
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:44
+  Rendered games/index.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 101ms (Views: 98.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/9" for 127.0.0.1 at 2019-02-01 08:14:04 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:3
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."user_id" = ?[0m  [["user_id", 9]]
+  ↳ app/models/user.rb:22
+  Rendered users/show.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 97ms (Views: 91.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/games" for 127.0.0.1 at 2019-02-01 08:21:48 -0800
+Processing by GamesController#index as HTML
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.8ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:44
+  Rendered games/index.html.erb within layouts/application (27.1ms)
+Completed 200 OK in 91ms (Views: 71.1ms | ActiveRecord: 6.2ms)
+
+
