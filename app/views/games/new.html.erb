@@ -1,0 +1,22 @@
+<%= render partial: "errors", locals: { form_save: @game } %>
+
+<% if @game.reviews.first != nil%>
+	<%= render partial: "errors", locals: { form_save: @game.reviews.first } %>
+<% end %>
+
+<%= form_for @game do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %><br>
+
+    <%= f.label :release_year %>
+    <%= f.text_field :release_year %>
+    <p>Available On:</p>
+    <%= f.collection_check_boxes :console_ids, Console.all, :id, :name %><br>
+    <%= f.fields_for :reviews, @game.reviews.build do |rev| %>
+      Rating:
+      <%= rev.text_field :rating %><br>
+      Review:
+      <%= rev.text_field :content %><br>
+    <% end %>
+  <%= f.submit %>
+<% end %>

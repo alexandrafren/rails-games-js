@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RailsGames</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <link rel="stylesheet" href="/layout.css">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="nav-bar">
+       <% if session[:user_id] %>
+        <a href='/games'>Home</a>
+        <%= link_to "Profile", user_path(session[:user_id]) %>
+        <%= form_tag ({controller: 'sessions', action: 'destroy'}) do %>
+          <input type=submit value='Logout' class="nav-bar-submit">
+        <% end %>
+        <% else %>
+          <a href="/users/new">Sign Up</a>
+      <% end %>
+    </div>
+    <%= yield %>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+<div class="show-page">
+<h1><%= @game.name %></h1>
+Release Year:<%= @game.release_year %><br>
+Available On: <% @game.consoles.each do |c| %>
+					<%= c.name %>
+				<% end %>
+
+
+<div class="avg-rating">
+		Average Rating:<%= @game.average_rating %>
+</div>
+
+
+<div class="review-box">
+	<% @review = Review.find_by(game_id: @game.id, user_id: session[:user_id]) %>
+	<% if @review %>
+		<%= link_to "Your Review of this Game", user_path(@user) %>
+	<% else %>
+		<%= link_to "Review This Game", new_game_review_path(@game) %>
+	<% end %>
+</div>
+</div>
+
+<%= link_to "See Reviews", game_reviews_url(@game) %>
+

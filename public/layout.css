@@ -1,0 +1,38 @@
+.nav-bar {
+  border-bottom: 3px black solid;
+  display: flex;
+}
+
+.nav-bar a {
+  text-decoration: none;
+  padding: 0px 15px 0px 15px;
+  border: 1px grey solid;
+  background-color: white;
+  color: black;
+}
+
+.nav-bar-submit {
+  text-decoration: none;
+  padding: .75px 15px .75px 15px;
+  border: 1px grey solid;
+  background-color: white;
+  color: black;
+  font-family: serif;
+}
+
+body {
+  background-color: aliceblue;
+}
+
+.columns {
+  display: flex;
+  align-items: center;
+}
+
+.new-game {
+  padding-top: 100px;
+}
+
+.show-page {
+	text-align: center;
+}

@@ -1,0 +1,31 @@
+<h1><%= @user.name %>'s profile!</h1>
+
+<h3> Most Liked Games </h3>
+<div class="most-liked">
+	<ol>
+	<% @user.most_liked.each do |i| %>
+		<li><%= link_to "#{i.game.name} - #{i.rating}", game_path(i.game.id) %></li>
+		<% end %>
+	</ol>
+</div>
+
+<h3> Least Liked Games </h3>
+<div class="least-liked">
+	<ol>
+	<% @user.least_liked.each do |i| %>
+		<li><%= link_to "#{i.game.name} - #{i.rating}", game_path(i.game.id) %></li>
+		<% end %>
+	</ol>
+</div>
+
+<h3> Reviews </h3>
+<div class="reviews">
+	<% @user.reviews.each do |r| %>
+		<div class="#{r.game.slug}">
+		<h3> <%= r.game.name %>  </h3>
+		<p><%= @user.name %> rated this <%= r.rating %>. Their review is "<%= r.content %>"</p>
+		</div>
+	<% end %>
+</div>
+
+

@@ -1,0 +1,51 @@
+<div>
+  <p>Filter Games by Average Rating:</p>
+  <%= form_tag("/games", method: "get") do %>
+    <select name="game[average_rating]">
+			<option value=''>Please Select</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+		</select>
+    <%= submit_tag "Filter" %>
+  <% end %>
+</div>
+<br>
+
+<div>
+  <p>Filter for Games Released Before:</p>
+  <%= form_for("game", method: "get") do |f| %>
+			<%= f.text_field :release_year %>
+      <%= f.submit "Filter" %>
+  <% end %>
+</div>
+<br>
+
+
+<% if params[:game] %>
+	<% if !params[:game][:average_rating].blank? %>
+		<% @games = [] %>
+		<% Game.all.each do |g| %>
+			<% if g.average_rating == params[:game][:average_rating].to_i %>
+				<% @games << g %>
+			<% end %>
+		<% end %>
+	<% elsif params[:game][:release_year] %>
+			<% @games = Game.released_before(params[:game][:release_year]) %>
+		<% end %>
+<% end %>
+
+
+<h4>Games:</h4>
+<div>
+	<div>
+<% @games.each do |g| %>
+	<%= link_to g.name, game_path(g.id) %><br>
+<% end %>
+</div>
+<div class="new-game">
+<%= link_to "Add a New Game", new_game_path %><br>
+</div>
+</div>

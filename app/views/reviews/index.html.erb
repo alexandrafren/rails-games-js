@@ -1,0 +1,6 @@
+
+<div class="reviews">
+	<% @game.reviews.each do |r| %>
+		<p><%= link_to r.user.name, user_path(r.user) %> rates this game <%= r.rating %>. Their review is: <%= r.content %>.</p>
+	<% end %>
+</div>
