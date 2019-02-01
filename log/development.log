@@ -8500,3 +8500,64 @@ Completed 200 OK in 219ms (Views: 198.1ms | ActiveRecord: 3.6ms)
   [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."game_id" = ?[0m  [["game_id", 7]]
   [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."game_id" = ?[0m  [["game_id", 7]]
   [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."game_id" = ?[0m  [["game_id", 7]]
+Started GET "/" for 127.0.0.1 at 2019-02-01 07:58:30 -0800
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/learn/.rvm/gems/ruby-2.3.6/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (12.6ms)
+Completed 200 OK in 654ms (Views: 638.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/auth/facebook" for 127.0.0.1 at 2019-02-01 07:58:34 -0800
+Started GET "/auth/facebook" for 127.0.0.1 at 2019-02-01 07:58:35 -0800
+Started POST "/login" for 127.0.0.1 at 2019-02-01 07:58:50 -0800
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Qug+/77sdQmHWusWPV2YjrkPafLEpgEfzIVnsXQeHTemRIn8TUdHR9bSUBBN447cur/n7lC4tefW7zAjuZ9Z7Q==", "user"=>{"name"=>"testing", "password"=>"[FILTERED]"}, "commit"=>"Submit"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "testing"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:17
+Redirected to http://localhost:3000/login
+Completed 302 Found in 65ms (ActiveRecord: 1.9ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2019-02-01 07:58:51 -0800
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 70ms (Views: 68.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2019-02-01 07:58:53 -0800
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered games/_errors.html.erb (1.2ms)
+  Rendered users/new.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 126ms (Views: 92.2ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2019-02-01 07:58:57 -0800
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ithJIFi7i9tnm8EEaYVzjnND0EERrKfBjLJMx/ywz8IC9U0iWC8dJcj+U69zLeB2p759xv7Mu5VVo4FYx4G/BQ==", "user"=>{"name"=>"test", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Submit"}
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "test"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:13
+  [1m[36mCACHE User Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "test"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:13
+  [1m[36mUser Create (1.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "test"], ["password_digest", "$2a$10$EGUfBt9fdxWS61bswLI26ejp1byyB6kN/OnZOyQyV6k/rpK/V252u"], ["created_at", "2019-02-01 15:58:57.532508"], ["updated_at", "2019-02-01 15:58:57.532508"]]
+  ↳ app/controllers/users_controller.rb:13
+  [1m[35m (23.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:13
+Redirected to http://localhost:3000/games
+Completed 302 Found in 179ms (ActiveRecord: 25.9ms)
+
+
+Started GET "/games" for 127.0.0.1 at 2019-02-01 07:58:57 -0800
+Processing by GamesController#index as HTML
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.6ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:44
+  Rendered games/index.html.erb within layouts/application (43.9ms)
+Completed 200 OK in 154ms (Views: 131.6ms | ActiveRecord: 1.8ms)
+
+
