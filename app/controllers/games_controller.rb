@@ -2,6 +2,10 @@ class GamesController < ApplicationController
 	helper_method :params
 	def index
 		@games = Game.all
+		respond_to do |format|
+			format.html {render :index}
+			format.json {render json: @games }
+		end
 	end
 
 	def show
