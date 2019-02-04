@@ -10318,3 +10318,309 @@ Processing by GamesController#show as JSON
 Completed 200 OK in 70ms (Views: 52.7ms | ActiveRecord: 5.4ms)
 
 
+Started GET "/games" for 127.0.0.1 at 2019-02-04 07:48:05 -0800
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/learn/.rvm/gems/ruby-2.3.6/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by GamesController#index as HTML
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (3.7ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:44
+  Rendered games/index.html.erb within layouts/application (37.9ms)
+Completed 200 OK in 1156ms (Views: 1102.6ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-02-04 07:49:27 -0800
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (14.0ms)
+Completed 200 OK in 169ms (Views: 164.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/games" for 127.0.0.1 at 2019-02-04 07:51:15 -0800
+Processing by GamesController#index as HTML
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.6ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:44
+  Rendered games/index.html.erb within layouts/application (17.3ms)
+Completed 200 OK in 207ms (Views: 201.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/games/1.json" for 127.0.0.1 at 2019-02-04 07:51:18 -0800
+Processing by GamesController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:13
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+[active_model_serializers]   [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."game_id" = ?[0m  [["game_id", 1]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:16
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."game_id" = ?[0m  [["game_id", 1]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:16
+[active_model_serializers]   [1m[36mConsoleGame Load (0.3ms)[0m  [1m[34mSELECT "console_games".* FROM "console_games" WHERE "console_games"."game_id" = ?[0m  [["game_id", 1]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:16
+[active_model_serializers]   [1m[36mConsole Load (0.4ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles" INNER JOIN "console_games" ON "consoles"."id" = "console_games"."console_id" WHERE "console_games"."game_id" = ?[0m  [["game_id", 1]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:16
+[active_model_serializers] Rendered GameSerializer with ActiveModelSerializers::Adapter::Attributes (186.39ms)
+Completed 200 OK in 335ms (Views: 226.6ms | ActiveRecord: 11.6ms)
+
+
+Started GET "/games" for 127.0.0.1 at 2019-02-04 07:54:50 -0800
+Processing by GamesController#index as HTML
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (8.5ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:44
+  Rendered games/index.html.erb within layouts/application (15.0ms)
+Completed 200 OK in 194ms (Views: 183.5ms | ActiveRecord: 8.5ms)
+
+
+Started GET "/games" for 127.0.0.1 at 2019-02-04 07:55:53 -0800
+Processing by GamesController#index as HTML
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:44
+  Rendered games/index.html.erb within layouts/application (11.9ms)
+Completed 200 OK in 202ms (Views: 201.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/games/1.json" for 127.0.0.1 at 2019-02-04 07:55:55 -0800
+Processing by GamesController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mGame Load (0.7ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:13
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+[active_model_serializers]   [1m[36mReview Load (0.7ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."game_id" = ?[0m  [["game_id", 1]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:16
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."game_id" = ?[0m  [["game_id", 1]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:16
+[active_model_serializers]   [1m[36mConsoleGame Load (0.3ms)[0m  [1m[34mSELECT "console_games".* FROM "console_games" WHERE "console_games"."game_id" = ?[0m  [["game_id", 1]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:16
+[active_model_serializers]   [1m[36mConsole Load (0.5ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles" INNER JOIN "console_games" ON "consoles"."id" = "console_games"."console_id" WHERE "console_games"."game_id" = ?[0m  [["game_id", 1]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:16
+[active_model_serializers] Rendered GameSerializer with ActiveModelSerializers::Adapter::Attributes (45.0ms)
+Completed 200 OK in 58ms (Views: 47.1ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/games/1" for 127.0.0.1 at 2019-02-04 07:55:58 -0800
+Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (5.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:13
+  Rendering games/show.html.erb within layouts/application
+  [1m[36mConsole Load (0.5ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles" INNER JOIN "console_games" ON "consoles"."id" = "console_games"."console_id" WHERE "console_games"."game_id" = ?[0m  [["game_id", 1]]
+  ↳ app/views/games/show.html.erb:4
+  [1m[36mReview Load (0.6ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."game_id" = ?[0m  [["game_id", 1]]
+  ↳ app/models/game.rb:15
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."game_id" = ?[0m  [["game_id", 1]]
+  ↳ app/models/game.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."game_id" = ?[0m  [["game_id", 1]]
+  ↳ app/models/game.rb:18
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."game_id" = ? AND "reviews"."user_id" = ? LIMIT ?[0m  [["game_id", 1], ["user_id", 10], ["LIMIT", 1]]
+  ↳ app/views/games/show.html.erb:15
+  Rendered games/show.html.erb within layouts/application (30.8ms)
+Completed 200 OK in 247ms (Views: 221.5ms | ActiveRecord: 7.8ms)
+
+
+Started GET "/games" for 127.0.0.1 at 2019-02-04 07:56:14 -0800
+Processing by GamesController#index as HTML
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.9ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:44
+  Rendered games/index.html.erb within layouts/application (15.2ms)
+Completed 200 OK in 221ms (Views: 219.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/games/1.json" for 127.0.0.1 at 2019-02-04 07:56:17 -0800
+Processing by GamesController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (4.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:13
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+[active_model_serializers]   [1m[36mReview Load (0.9ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."game_id" = ?[0m  [["game_id", 1]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:16
+[active_model_serializers]   [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."game_id" = ?[0m  [["game_id", 1]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:16
+[active_model_serializers]   [1m[36mConsoleGame Load (0.8ms)[0m  [1m[34mSELECT "console_games".* FROM "console_games" WHERE "console_games"."game_id" = ?[0m  [["game_id", 1]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:16
+[active_model_serializers]   [1m[36mConsole Load (1.3ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles" INNER JOIN "console_games" ON "consoles"."id" = "console_games"."console_id" WHERE "console_games"."game_id" = ?[0m  [["game_id", 1]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:16
+[active_model_serializers] Rendered GameSerializer with ActiveModelSerializers::Adapter::Attributes (127.2ms)
+Completed 200 OK in 167ms (Views: 141.5ms | ActiveRecord: 8.9ms)
+
+
+Started GET "/games/1" for 127.0.0.1 at 2019-02-04 07:56:19 -0800
+Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:13
+  Rendering games/show.html.erb within layouts/application
+  [1m[36mConsole Load (0.3ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles" INNER JOIN "console_games" ON "consoles"."id" = "console_games"."console_id" WHERE "console_games"."game_id" = ?[0m  [["game_id", 1]]
+  ↳ app/views/games/show.html.erb:4
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."game_id" = ?[0m  [["game_id", 1]]
+  ↳ app/models/game.rb:15
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."game_id" = ?[0m  [["game_id", 1]]
+  ↳ app/models/game.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."game_id" = ?[0m  [["game_id", 1]]
+  ↳ app/models/game.rb:18
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."game_id" = ? AND "reviews"."user_id" = ? LIMIT ?[0m  [["game_id", 1], ["user_id", 10], ["LIMIT", 1]]
+  ↳ app/views/games/show.html.erb:15
+  Rendered games/show.html.erb within layouts/application (26.7ms)
+Completed 200 OK in 179ms (Views: 166.4ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/games" for 127.0.0.1 at 2019-02-04 07:56:23 -0800
+Processing by GamesController#index as HTML
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:44
+  Rendered games/index.html.erb within layouts/application (16.8ms)
+Completed 200 OK in 199ms (Views: 196.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/games/3.json" for 127.0.0.1 at 2019-02-04 07:56:25 -0800
+Processing by GamesController#show as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mGame Load (0.7ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:13
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+[active_model_serializers]   [1m[36mReview Load (0.5ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."game_id" = ?[0m  [["game_id", 3]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:16
+[active_model_serializers]   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."game_id" = ?[0m  [["game_id", 3]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:16
+[active_model_serializers]   [1m[36mConsoleGame Load (0.7ms)[0m  [1m[34mSELECT "console_games".* FROM "console_games" WHERE "console_games"."game_id" = ?[0m  [["game_id", 3]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:16
+[active_model_serializers]   [1m[36mConsole Load (0.8ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles" INNER JOIN "console_games" ON "consoles"."id" = "console_games"."console_id" WHERE "console_games"."game_id" = ?[0m  [["game_id", 3]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:16
+[active_model_serializers] Rendered GameSerializer with ActiveModelSerializers::Adapter::Attributes (34.32ms)
+Completed 200 OK in 70ms (Views: 44.0ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/games/6.json" for 127.0.0.1 at 2019-02-04 07:56:27 -0800
+Processing by GamesController#show as JSON
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:13
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+[active_model_serializers]   [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."game_id" = ?[0m  [["game_id", 6]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:16
+[active_model_serializers]   [1m[36mUser Load (16.9ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."game_id" = ?[0m  [["game_id", 6]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:16
+[active_model_serializers]   [1m[36mConsoleGame Load (0.2ms)[0m  [1m[34mSELECT "console_games".* FROM "console_games" WHERE "console_games"."game_id" = ?[0m  [["game_id", 6]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:16
+[active_model_serializers]   [1m[36mConsole Load (0.2ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles" INNER JOIN "console_games" ON "consoles"."id" = "console_games"."console_id" WHERE "console_games"."game_id" = ?[0m  [["game_id", 6]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:16
+[active_model_serializers] Rendered GameSerializer with ActiveModelSerializers::Adapter::Attributes (64.14ms)
+Completed 200 OK in 101ms (Views: 59.9ms | ActiveRecord: 18.4ms)
+
+
+Started GET "/games/4.json" for 127.0.0.1 at 2019-02-04 07:56:30 -0800
+Processing by GamesController#show as JSON
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:13
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+[active_model_serializers]   [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."game_id" = ?[0m  [["game_id", 4]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:16
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."game_id" = ?[0m  [["game_id", 4]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:16
+[active_model_serializers]   [1m[36mConsoleGame Load (0.3ms)[0m  [1m[34mSELECT "console_games".* FROM "console_games" WHERE "console_games"."game_id" = ?[0m  [["game_id", 4]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:16
+[active_model_serializers]   [1m[36mConsole Load (0.2ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles" INNER JOIN "console_games" ON "consoles"."id" = "console_games"."console_id" WHERE "console_games"."game_id" = ?[0m  [["game_id", 4]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:16
+[active_model_serializers] Rendered GameSerializer with ActiveModelSerializers::Adapter::Attributes (29.92ms)
+Completed 200 OK in 45ms (Views: 35.8ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/games/1.json" for 127.0.0.1 at 2019-02-04 07:56:32 -0800
+Processing by GamesController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mGame Load (0.9ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:13
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+[active_model_serializers]   [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."game_id" = ?[0m  [["game_id", 1]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:16
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."game_id" = ?[0m  [["game_id", 1]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:16
+[active_model_serializers]   [1m[36mConsoleGame Load (0.2ms)[0m  [1m[34mSELECT "console_games".* FROM "console_games" WHERE "console_games"."game_id" = ?[0m  [["game_id", 1]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:16
+[active_model_serializers]   [1m[36mConsole Load (0.2ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles" INNER JOIN "console_games" ON "consoles"."id" = "console_games"."console_id" WHERE "console_games"."game_id" = ?[0m  [["game_id", 1]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:16
+[active_model_serializers] Rendered GameSerializer with ActiveModelSerializers::Adapter::Attributes (27.45ms)
+Completed 200 OK in 55ms (Views: 40.2ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/games/1" for 127.0.0.1 at 2019-02-04 07:56:34 -0800
+Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:13
+  Rendering games/show.html.erb within layouts/application
+  [1m[36mConsole Load (0.2ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles" INNER JOIN "console_games" ON "consoles"."id" = "console_games"."console_id" WHERE "console_games"."game_id" = ?[0m  [["game_id", 1]]
+  ↳ app/views/games/show.html.erb:4
+  [1m[36mReview Load (4.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."game_id" = ?[0m  [["game_id", 1]]
+  ↳ app/models/game.rb:15
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."game_id" = ?[0m  [["game_id", 1]]
+  ↳ app/models/game.rb:18
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."game_id" = ?[0m  [["game_id", 1]]
+  ↳ app/models/game.rb:18
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."game_id" = ? AND "reviews"."user_id" = ? LIMIT ?[0m  [["game_id", 1], ["user_id", 10], ["LIMIT", 1]]
+  ↳ app/views/games/show.html.erb:15
+  Rendered games/show.html.erb within layouts/application (37.4ms)
+Completed 200 OK in 278ms (Views: 242.2ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/games" for 127.0.0.1 at 2019-02-04 07:56:42 -0800
+Processing by GamesController#index as HTML
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:44
+  Rendered games/index.html.erb within layouts/application (18.9ms)
+Completed 200 OK in 215ms (Views: 213.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/games/5.json" for 127.0.0.1 at 2019-02-04 07:56:46 -0800
+Processing by GamesController#show as JSON
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mGame Load (0.6ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:13
+  [1m[36mCACHE User Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+[active_model_serializers]   [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."game_id" = ?[0m  [["game_id", 5]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:16
+[active_model_serializers]   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."game_id" = ?[0m  [["game_id", 5]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:16
+[active_model_serializers]   [1m[36mConsoleGame Load (0.8ms)[0m  [1m[34mSELECT "console_games".* FROM "console_games" WHERE "console_games"."game_id" = ?[0m  [["game_id", 5]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:16
+[active_model_serializers]   [1m[36mConsole Load (0.2ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles" INNER JOIN "console_games" ON "consoles"."id" = "console_games"."console_id" WHERE "console_games"."game_id" = ?[0m  [["game_id", 5]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:16
+[active_model_serializers] Rendered GameSerializer with ActiveModelSerializers::Adapter::Attributes (37.29ms)
+Completed 200 OK in 72ms (Views: 41.6ms | ActiveRecord: 3.5ms)
+
+
