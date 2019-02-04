@@ -1,3 +1,4 @@
+<div id="game-id-tag">
 <div class="show-page">
 <h1><%= @game.name %></h1>
 Release Year:<%= @game.release_year %><br>
@@ -21,6 +22,8 @@ Available On: <% @game.consoles.each do |c| %>
 </div>
 </div>
 
+
+
 <h4>Reviews</h4>
 <% @counter = 0 %>
 <% @game.reviews.each do |r| %>
@@ -28,6 +31,10 @@ Available On: <% @game.consoles.each do |c| %>
   <div id="r-<%= r.id %>">  <button class="js-ratings" data-id="<%= r.id %>" data-game="<%= @game.id %>"  data-counter="<%= @counter %>">See Their Review</button></div>
   <% @counter += 1 %>
 <% end %>
+
+<button class="js-nextgame">Next Game -></button>
+</div>
+
 
 <script type="text/javascript" charset="utf-8">
 $(function() {

@@ -36,3 +36,8 @@ body {
 .show-page {
 	text-align: center;
 }
+
+.js-nextgame {
+  position: absolute;
+  right: 100px;
+}
