@@ -21,5 +21,20 @@ Available On: <% @game.consoles.each do |c| %>
 </div>
 </div>
 
-<%= link_to "See Reviews", game_reviews_url(@game) %>
+<h4>Reviews</h4>
+<% @game.reviews.each do |r| %>
+  <p><%= r.user.name %> rates this game: <%= r.rating %> out of 5.
+  <div id="r-<%= r.id %>">  <button class="js-ratings" data-id="<%= r.id %>">See Their Review</button></div>
+<% end %>
 
+<script type="text/javascript" charset="utf-8">
+$(function() {
+  $(".js-ratings").on("click", function() {
+    var id = $(this).data("id");
+    $.get("/games/" + id + "reviews.json", function(obj) {
+  	var reviewText = obj["reviews"][id]["content"]
+        $("#r-" + id).html(reviewText);
+      });
+    });
+  });
+</script>

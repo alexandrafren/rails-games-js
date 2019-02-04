@@ -2,6 +2,10 @@ class ReviewsController < ApplicationController
 
   def index
     @game = Game.find(params[:game_id])
+     respond_to do |format|
+	format.html {render :index}
+	format.json {render json:@game}
+     end
   end
 
   def new

@@ -60,13 +60,11 @@
 	$(".js-more").on("click", function() {
 		   	var id = $(this).data("id");
 			$.get("/games/" + id + ".json", function(obj) {
-				var moreInfo = "<h3>" + obj["name"] + "</h3><p>" + obj["release_year"] + "</p><p>Available On:" + obj["consoles"]["0"]["name"] + "</p><a href='/games/" + id +"'>See Full Game Profile</a>"
+				var moreInfo = "<h3>" + obj["name"] + "</h3><p>" + obj["release_year"] + "</p><p>Available On:" + obj["consoles"]["0"]["name"] + "</p><a href='/games/" + id +"'>See Ratings & Reviews</a>"
 				$("#game-" + id).html(moreInfo);
+			})
 		})
-	});
 </script>
-
-
 
 
 
