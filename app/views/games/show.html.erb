@@ -22,17 +22,21 @@ Available On: <% @game.consoles.each do |c| %>
 </div>
 
 <h4>Reviews</h4>
+<% @counter = 0 %>
 <% @game.reviews.each do |r| %>
   <p><%= r.user.name %> rates this game: <%= r.rating %> out of 5.
-  <div id="r-<%= r.id %>">  <button class="js-ratings" data-id="<%= r.id %>">See Their Review</button></div>
+  <div id="r-<%= r.id %>">  <button class="js-ratings" data-id="<%= r.id %>" data-game="<%= @game.id %>"  data-counter="<%= @counter %>">See Their Review</button></div>
+  <% @counter += 1 %>
 <% end %>
 
 <script type="text/javascript" charset="utf-8">
 $(function() {
   $(".js-ratings").on("click", function() {
     var id = $(this).data("id");
-    $.get("/games/" + id + "reviews.json", function(obj) {
-  	var reviewText = obj["reviews"][id]["content"]
+    var game = $(this).data("game");
+    var contentid = $(this).data("counter")
+    $.get("/games/" + game + "reviews.json", function(obj) {
+  	var reviewText = obj["reviews"][contentid]["content"]
         $("#r-" + id).html(reviewText);
       });
     });
