@@ -42,8 +42,9 @@
 <div>
 	<div>
 <% @games.each do |g| %>
-	<button class="js-more" data-id="<%= g.id %>"><%= g.name %></button>
-	<div id="game-<%=  g.id %>"></div>
+	<div id="game-<%=  g.id %>">
+		<button class="js-more" data-id="<%= g.id %>"><%= g.name %></button>
+	</div>
 <% end %>
 </div>
 
@@ -55,17 +56,16 @@
 </div>
 
 
-<script type="text/javascript" charset="utf-8">
-$(function() {
-  $(".js-more").onClick(function() {
-    var id = $(this).data-id("id");
-    $.get("/games/" + id + ".json", function(obj) {
-	var moreInfo = "<h3>" + obj["name"] + "</h3><p>" + obj["release_year"] + "</p><p>Available On:" + obj["consoles"]["name"] + "</p>"
-        $("#game" + id).html(moreInfo);
-      });
-    });
-  });
+<script>
+	$(".js-more").on("click", function() {
+		   	var id = $(this).data("id");
+			$.get("/games/" + id + ".json", function(obj) {
+				var moreInfo = "<h3>" + obj["name"] + "</h3><p>" + obj["release_year"] + "</p><p>Available On:" + obj["consoles"]["0"]["name"] + "</p>"
+				$("#game-" + id).html(moreInfo);
+		})
+	});
 </script>
+
 
 
 
