@@ -32,7 +32,7 @@ Available On: <% @game.consoles.each do |c| %>
   <% @counter += 1 %>
 <% end %>
 
-<button class="js-nextgame">Next Game -></button>
+<button class="js-nextgame" data-id="<%= @game.id %>">Next Game -></button>
 </div>
 
 
@@ -48,4 +48,15 @@ $(function() {
       });
     });
   });
+
+
+$(function() {
+  $(".js-nextgame").on("click", function() {
+    var id = $(this).data("id") + 1;
+    $.get("/games/" + id + ".json", function(obj){
+      var nextGameText = obj;
+      $("#game-id-tag").text("replaced!");
+    });
+  });
+});
 </script>
