@@ -8854,3 +8854,435 @@ Processing by GamesController#index as JSON
 Completed 200 OK in 297ms (Views: 275.5ms | ActiveRecord: 10.9ms)
 
 
+Started GET "/games" for 127.0.0.1 at 2019-02-04 05:37:04 -0800
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/learn/.rvm/gems/ruby-2.3.6/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by GamesController#index as HTML
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:44
+  Rendered games/index.html.erb within layouts/application (35.9ms)
+Completed 200 OK in 1096ms (Views: 1052.8ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/games/new" for 127.0.0.1 at 2019-02-04 05:37:09 -0800
+Processing by GamesController#new as HTML
+  Rendering games/new.html.erb within layouts/application
+  Rendered games/_errors.html.erb (5.4ms)
+  [1m[36mConsole Load (0.4ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles"[0m
+  ↳ app/views/games/new.html.erb:14
+  Rendered games/new.html.erb within layouts/application (598.0ms)
+Completed 200 OK in 715ms (Views: 695.8ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/games" for 127.0.0.1 at 2019-02-04 05:38:38 -0800
+Processing by GamesController#index as HTML
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.6ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:44
+  Rendered games/index.html.erb within layouts/application (18.6ms)
+Completed 200 OK in 114ms (Views: 110.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/games" for 127.0.0.1 at 2019-02-04 05:38:55 -0800
+Processing by GamesController#index as HTML
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (4.4ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:44
+  Rendered games/index.html.erb within layouts/application (14.0ms)
+Completed 200 OK in 119ms (Views: 110.3ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/games/new" for 127.0.0.1 at 2019-02-04 05:41:26 -0800
+Processing by GamesController#new as HTML
+  Rendering games/new.html.erb within layouts/application
+  Rendered games/_errors.html.erb (1.6ms)
+  [1m[36mConsole Load (0.3ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles"[0m
+  ↳ app/views/games/new.html.erb:14
+  Rendered games/new.html.erb within layouts/application (44.0ms)
+Completed 500 Internal Server Error in 1489ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (SyntaxError: [stdin]:6:1: reserved word 'function'):
+     6:     <%= csp_meta_tag %>
+     7:     <link rel="stylesheet" href="/layout.css">
+     8:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     9:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    10:   </head>
+    11: 
+    12:   <body>
+  
+(execjs):7539:8
+(execjs):7545:14
+app/views/layouts/application.html.erb:9:in `_app_views_layouts_application_html_erb___1026107472_105167440'
+Started GET "/games" for 127.0.0.1 at 2019-02-04 05:41:44 -0800
+Processing by GamesController#index as HTML
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:44
+  Rendered games/index.html.erb within layouts/application (13.4ms)
+Completed 500 Internal Server Error in 400ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (SyntaxError: [stdin]:6:1: reserved word 'function'):
+     6:     <%= csp_meta_tag %>
+     7:     <link rel="stylesheet" href="/layout.css">
+     8:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     9:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    10:   </head>
+    11: 
+    12:   <body>
+  
+(execjs):7539:8
+(execjs):7545:14
+app/views/layouts/application.html.erb:9:in `_app_views_layouts_application_html_erb___1026107472_88769960'
+app/controllers/games_controller.rb:6:in `block (2 levels) in index'
+app/controllers/games_controller.rb:5:in `index'
+Started GET "/games" for 127.0.0.1 at 2019-02-04 05:41:53 -0800
+Processing by GamesController#index as HTML
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:44
+  Rendered games/index.html.erb within layouts/application (14.1ms)
+Completed 500 Internal Server Error in 358ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (SyntaxError: [stdin]:6:1: reserved word 'function'):
+     6:     <%= csp_meta_tag %>
+     7:     <link rel="stylesheet" href="/layout.css">
+     8:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     9:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    10:   </head>
+    11: 
+    12:   <body>
+  
+(execjs):7539:8
+(execjs):7545:14
+app/views/layouts/application.html.erb:9:in `_app_views_layouts_application_html_erb___1026107472_96032900'
+app/controllers/games_controller.rb:6:in `block (2 levels) in index'
+app/controllers/games_controller.rb:5:in `index'
+Started GET "/games" for 127.0.0.1 at 2019-02-04 05:42:26 -0800
+Processing by GamesController#index as HTML
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (1.3ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:44
+  Rendered games/index.html.erb within layouts/application (36.8ms)
+Completed 200 OK in 778ms (Views: 774.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/games/new" for 127.0.0.1 at 2019-02-04 05:42:30 -0800
+Processing by GamesController#new as HTML
+  Rendering games/new.html.erb within layouts/application
+  Rendered games/_errors.html.erb (5.7ms)
+  [1m[36mConsole Load (0.3ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles"[0m
+  ↳ app/views/games/new.html.erb:14
+  Rendered games/new.html.erb within layouts/application (42.3ms)
+Completed 200 OK in 250ms (Views: 235.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/games/new" for 127.0.0.1 at 2019-02-04 05:46:03 -0800
+Processing by GamesController#new as HTML
+  Rendering games/new.html.erb within layouts/application
+  Rendered games/_errors.html.erb (1.3ms)
+  [1m[36mConsole Load (1.5ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles"[0m
+  ↳ app/views/games/new.html.erb:14
+  Rendered games/new.html.erb within layouts/application (48.0ms)
+Completed 500 Internal Server Error in 565ms (ActiveRecord: 1.5ms)
+
+
+  
+ActionView::Template::Error (SyntaxError: [stdin]:6:1: reserved word 'function'):
+     6:     <%= csp_meta_tag %>
+     7:     <link rel="stylesheet" href="/layout.css">
+     8:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     9:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    10:   </head>
+    11: 
+    12:   <body>
+  
+(execjs):7539:8
+(execjs):7545:14
+app/views/layouts/application.html.erb:9:in `_app_views_layouts_application_html_erb___1026107472__617120718'
+Started GET "/games" for 127.0.0.1 at 2019-02-04 05:46:08 -0800
+Processing by GamesController#index as HTML
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (7.9ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:44
+  Rendered games/index.html.erb within layouts/application (17.5ms)
+Completed 500 Internal Server Error in 362ms (ActiveRecord: 7.9ms)
+
+
+  
+ActionView::Template::Error (SyntaxError: [stdin]:6:1: reserved word 'function'):
+     6:     <%= csp_meta_tag %>
+     7:     <link rel="stylesheet" href="/layout.css">
+     8:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     9:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    10:   </head>
+    11: 
+    12:   <body>
+  
+(execjs):7539:8
+(execjs):7545:14
+app/views/layouts/application.html.erb:9:in `_app_views_layouts_application_html_erb___1026107472_111221740'
+app/controllers/games_controller.rb:6:in `block (2 levels) in index'
+app/controllers/games_controller.rb:5:in `index'
+Started GET "/games" for 127.0.0.1 at 2019-02-04 05:46:40 -0800
+Processing by GamesController#index as HTML
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:44
+  Rendered games/index.html.erb within layouts/application (20.1ms)
+Completed 200 OK in 536ms (Views: 532.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/games" for 127.0.0.1 at 2019-02-04 05:48:40 -0800
+Processing by GamesController#index as HTML
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (5.0ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:44
+  Rendered games/index.html.erb within layouts/application (10.8ms)
+Completed 200 OK in 213ms (Views: 206.9ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/games" for 127.0.0.1 at 2019-02-04 05:48:54 -0800
+Processing by GamesController#index as HTML
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:44
+  Rendered games/index.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 113ms (Views: 111.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/games" for 127.0.0.1 at 2019-02-04 05:50:33 -0800
+Processing by GamesController#index as HTML
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (5.3ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:44
+  Rendered games/index.html.erb within layouts/application (17.7ms)
+Completed 200 OK in 559ms (Views: 552.7ms | ActiveRecord: 5.3ms)
+
+
+Started GET "/games" for 127.0.0.1 at 2019-02-04 05:50:47 -0800
+Processing by GamesController#index as HTML
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:44
+  Rendered games/index.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 149ms (Views: 146.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/games" for 127.0.0.1 at 2019-02-04 05:52:14 -0800
+Processing by GamesController#index as HTML
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:44
+  Rendered games/index.html.erb within layouts/application (17.5ms)
+Completed 200 OK in 206ms (Views: 204.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/games" for 127.0.0.1 at 2019-02-04 05:53:57 -0800
+Processing by GamesController#index as HTML
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:44
+  Rendered games/index.html.erb within layouts/application (19.4ms)
+Completed 200 OK in 119ms (Views: 117.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/games/new" for 127.0.0.1 at 2019-02-04 05:54:01 -0800
+Processing by GamesController#new as HTML
+  Rendering games/new.html.erb within layouts/application
+  Rendered games/_errors.html.erb (0.9ms)
+  [1m[36mConsole Load (0.7ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles"[0m
+  ↳ app/views/games/new.html.erb:14
+  Rendered games/new.html.erb within layouts/application (43.4ms)
+Completed 200 OK in 236ms (Views: 212.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/games" for 127.0.0.1 at 2019-02-04 05:57:54 -0800
+Processing by GamesController#index as HTML
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:44
+  Rendered games/index.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 120ms (Views: 118.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/10" for 127.0.0.1 at 2019-02-04 05:58:26 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (4.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:3
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mReview Load (0.5ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."user_id" = ?[0m  [["user_id", 10]]
+  ↳ app/models/user.rb:22
+  Rendered users/show.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 173ms (Views: 87.4ms | ActiveRecord: 5.8ms)
+
+
+Started GET "/games" for 127.0.0.1 at 2019-02-04 05:59:02 -0800
+Processing by GamesController#index as HTML
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:44
+  Rendered games/index.html.erb within layouts/application (13.2ms)
+Completed 200 OK in 165ms (Views: 161.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/games/1" for 127.0.0.1 at 2019-02-04 05:59:05 -0800
+Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (4.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mGame Load (0.8ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:13
+  Rendering games/show.html.erb within layouts/application
+  [1m[36mConsole Load (0.3ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles" INNER JOIN "console_games" ON "consoles"."id" = "console_games"."console_id" WHERE "console_games"."game_id" = ?[0m  [["game_id", 1]]
+  ↳ app/views/games/show.html.erb:4
+  [1m[36mReview Load (0.5ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."game_id" = ?[0m  [["game_id", 1]]
+  ↳ app/models/game.rb:15
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."game_id" = ?[0m  [["game_id", 1]]
+  ↳ app/models/game.rb:18
+  [1m[35mCACHE  (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."game_id" = ?[0m  [["game_id", 1]]
+  ↳ app/models/game.rb:18
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."game_id" = ? AND "reviews"."user_id" = ? LIMIT ?[0m  [["game_id", 1], ["user_id", 10], ["LIMIT", 1]]
+  ↳ app/views/games/show.html.erb:15
+  Rendered games/show.html.erb within layouts/application (113.4ms)
+Completed 200 OK in 246ms (Views: 208.5ms | ActiveRecord: 7.1ms)
+
+
+Started GET "/games" for 127.0.0.1 at 2019-02-04 06:07:16 -0800
+Processing by GamesController#index as HTML
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:44
+  Rendered games/index.html.erb within layouts/application (1099.8ms)
+Completed 500 Internal Server Error in 1128ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `g' for #<#<Class:0x0b6e2ea8>:0x0cd378c0>):
+    56: 
+    57: <div id="
+    58: 
+    59: 	<!--<%= link_to g.name, game_path(g.id) %><br>-->
+  
+app/views/games/index.html.erb:59:in `_app_views_games_index_html_erb___737730403_107591550'
+app/controllers/games_controller.rb:6:in `block (2 levels) in index'
+app/controllers/games_controller.rb:5:in `index'
+Started GET "/games" for 127.0.0.1 at 2019-02-04 06:07:28 -0800
+Processing by GamesController#index as HTML
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (1.1ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:44
+  Rendered games/index.html.erb within layouts/application (68.0ms)
+Completed 200 OK in 238ms (Views: 221.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/users/10" for 127.0.0.1 at 2019-02-04 06:07:47 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:3
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."user_id" = ?[0m  [["user_id", 10]]
+  ↳ app/models/user.rb:22
+  Rendered users/show.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 192ms (Views: 180.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/games" for 127.0.0.1 at 2019-02-04 06:09:36 -0800
+Processing by GamesController#index as HTML
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.8ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:44
+  Rendered games/index.html.erb within layouts/application (1087.8ms)
+Completed 500 Internal Server Error in 1123ms (ActiveRecord: 2.4ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `g' for #<#<Class:0x0d5aeecc>:0x0d5ae120>):
+    56: 
+    57: <div id="
+    58: 
+    59: 	<!--<%= link_to g.name, game_path(g.id) %><br>-->
+  
+app/views/games/index.html.erb:59:in `_app_views_games_index_html_erb___737730403_112028500'
+app/controllers/games_controller.rb:6:in `block (2 levels) in index'
+app/controllers/games_controller.rb:5:in `index'
+Started GET "/games" for 127.0.0.1 at 2019-02-04 06:09:46 -0800
+Processing by GamesController#index as HTML
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:44
+  Rendered games/index.html.erb within layouts/application (11.8ms)
+Completed 200 OK in 118ms (Views: 116.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/games/a" for 127.0.0.1 at 2019-02-04 06:11:39 -0800
+  
+SyntaxError (/home/learn/Development/Code/rails-portfolio/rails-games-js/app/controllers/games_controller.rb:43: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/controllers/games_controller.rb:43: syntax error, unexpected end-of-input, expecting keyword_end
+Started GET "/games/1" for 127.0.0.1 at 2019-02-04 06:11:42 -0800
+  
+SyntaxError (/home/learn/Development/Code/rails-portfolio/rails-games-js/app/controllers/games_controller.rb:43: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/controllers/games_controller.rb:43: syntax error, unexpected end-of-input, expecting keyword_end
+Started GET "/games/1.json" for 127.0.0.1 at 2019-02-04 06:11:49 -0800
+  
+SyntaxError (/home/learn/Development/Code/rails-portfolio/rails-games-js/app/controllers/games_controller.rb:43: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/controllers/games_controller.rb:43: syntax error, unexpected end-of-input, expecting keyword_end
+Started GET "/games/1.json" for 127.0.0.1 at 2019-02-04 06:11:59 -0800
+Processing by GamesController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:13
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+[active_model_serializers]   [1m[36mReview Load (0.5ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."game_id" = ?[0m  [["game_id", 1]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:16
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."game_id" = ?[0m  [["game_id", 1]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:16
+[active_model_serializers]   [1m[36mConsoleGame Load (4.9ms)[0m  [1m[34mSELECT "console_games".* FROM "console_games" WHERE "console_games"."game_id" = ?[0m  [["game_id", 1]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:16
+[active_model_serializers]   [1m[36mConsole Load (0.2ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles" INNER JOIN "console_games" ON "consoles"."id" = "console_games"."console_id" WHERE "console_games"."game_id" = ?[0m  [["game_id", 1]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:16
+[active_model_serializers] Rendered GameSerializer with ActiveModelSerializers::Adapter::Attributes (201.88ms)
+Completed 200 OK in 400ms (Views: 277.1ms | ActiveRecord: 16.0ms)
+
+
+Started GET "/games" for 127.0.0.1 at 2019-02-04 06:18:15 -0800
+Processing by GamesController#index as HTML
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.8ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:44
+  Rendered games/index.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 115ms (Views: 112.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/games" for 127.0.0.1 at 2019-02-04 06:26:30 -0800
+Processing by GamesController#index as HTML
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:44
+  Rendered games/index.html.erb within layouts/application (13.1ms)
+Completed 200 OK in 131ms (Views: 128.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/games" for 127.0.0.1 at 2019-02-04 06:26:56 -0800
+Processing by GamesController#index as HTML
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (2.0ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:44
+  Rendered games/index.html.erb within layouts/application (33.8ms)
+Completed 200 OK in 188ms (Views: 183.2ms | ActiveRecord: 2.0ms)
+
+

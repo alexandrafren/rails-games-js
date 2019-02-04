@@ -42,10 +42,32 @@
 <div>
 	<div>
 <% @games.each do |g| %>
-	<%= link_to g.name, game_path(g.id) %><br>
+	<button class="js-more" data-id="<%= g.id %>"><%= g.name %></button>
+	<div id="game-<%=  g.id %>"></div>
 <% end %>
 </div>
+
+
+
 <div class="new-game">
 <%= link_to "Add a New Game", new_game_path %><br>
 </div>
 </div>
+
+
+<script type="text/javascript" charset="utf-8">
+$(function() {
+  $(".js-more").onClick(function() {
+    var id = $(this).data-id("id");
+    $.get("/games/" + id + ".json", function(obj) {
+	var moreInfo = "<h3>" + obj["name"] + "</h3><p>" + obj["release_year"] + "</p><p>Available On:" + obj["consoles"]["name"] + "</p>"
+        $("#game" + id).html(moreInfo);
+      });
+    });
+  });
+</script>
+
+
+
+
+
