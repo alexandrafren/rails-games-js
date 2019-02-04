@@ -1,5 +1,6 @@
-<div id="game-id-tag">
+
 <div class="show-page">
+<div id="game-header">
 <h1><%= @game.name %></h1>
 Release Year:<%= @game.release_year %><br>
 Available On: <% @game.consoles.each do |c| %>
@@ -10,10 +11,14 @@ Available On: <% @game.consoles.each do |c| %>
 <div class="avg-rating">
 		Average Rating:<%= @game.average_rating %>
 </div>
+</div>
 
 
 <div class="review-box">
-	<% @review = Review.find_by(game_id: @game.id, user_id: session[:user_id]) %>
+  <div id="js-review">
+  <% gameid = @game.id %>
+  </div>
+  <% @review = Review.find_by(game_id: gameid, user_id: session[:user_id]) %>
 	<% if @review %>
 		<%= link_to "Your Review of this Game", user_path(@user) %>
 	<% else %>
@@ -23,40 +28,45 @@ Available On: <% @game.consoles.each do |c| %>
 </div>
 
 
-
+<div id="reviews">
 <h4>Reviews</h4>
-<% @counter = 0 %>
 <% @game.reviews.each do |r| %>
-  <p><%= r.user.name %> rates this game: <%= r.rating %> out of 5.
-  <div id="r-<%= r.id %>">  <button class="js-ratings" data-id="<%= r.id %>" data-game="<%= @game.id %>"  data-counter="<%= @counter %>">See Their Review</button></div>
-  <% @counter += 1 %>
+  <div id="r-<%= r.id %>">
+    <p><%= r.user.name %> rates this game: <%= r.rating %> out of 5. They said: <%= r.content %></p>
+  </div>
 <% end %>
-
-<button class="js-nextgame" data-id="<%= @game.id %>">Next Game -></button>
 </div>
+<button class="js-nextgame" data-id="<%= @game.id %>">Next Game -></button>
+
 
 
 <script type="text/javascript" charset="utf-8">
 $(function() {
-  $(".js-ratings").on("click", function() {
-    var id = $(this).data("id");
-    var game = $(this).data("game");
-    var contentid = $(this).data("counter")
-    $.get("/games/" + game + "reviews.json", function(obj) {
-  	var reviewText = obj["reviews"][contentid]["content"]
-        $("#r-" + id).html(reviewText);
-      });
-    });
-  });
-
-
-$(function() {
   $(".js-nextgame").on("click", function() {
     var id = $(this).data("id") + 1;
     $.get("/games/" + id + ".json", function(obj){
-      var nextGameText = obj;
-      $("#game-id-tag").text("replaced!");
+      var consoles = "";
+      var average_rating = 0;
+      var counter = 0;
+      var counter2 = 0;
+      var reviews = "";
+      var objCount = Object.keys(obj).length;
+      var data =  + ",length: objCount";
+      obj["reviews"].forEach(function(elem){
+        average_rating += elem["rating"];
+        var reviewhtml = "<p>" + elem["user_id"].name + "rates this game: " + elem["rating"] + "out of 5. They said: " + elem["content"] + "</p>"
+        var id = elem["id"]
+        $("#r-" + id).html(reviewhtml);
+        counter += 1;
+      })
+      average_rating = average_rating / counter;
+      obj["consoles"].forEach(function(elem){
+        consoles += (" " + elem["name"]);
+      })
+      var nextGameHeader = "<h1>" + obj["name"] + "</h1><p>" + obj["release_year"] + "Available On: " + consoles + "Average Rating: " + average_rating + "</p>"
+      $("#game-header").html(nextGameHeader);
     });
   });
 });
+
 </script>
