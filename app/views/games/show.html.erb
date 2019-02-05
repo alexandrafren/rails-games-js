@@ -16,7 +16,7 @@ Available On: <% @game.consoles.each do |c| %>
 
 <div class="review-box">
   <div id="js-review">
-  <% gameid = @game.id %>
+    <% gameid = @game.id %>
   </div>
   <% @review = Review.find_by(game_id: gameid, user_id: session[:user_id]) %>
 	<% if @review %>
@@ -68,6 +68,7 @@ $(function() {
       $("#update-ratings").html(reviewhtml);
       $("#game-header").html(nextGameHeader);
       $(".js-nextgame").data("id", id);
+      $("#js-review").erb("<%= gameid = " + id) + "%>")
     });
   });
 });
