@@ -30,41 +30,44 @@ Available On: <% @game.consoles.each do |c| %>
 
 <div id="reviews">
 <h4>Reviews</h4>
+<div id="update-ratings">
 <% @game.reviews.each do |r| %>
-  <div id="r-<%= r.id %>">
-    <p><%= r.user.name %> rates this game: <%= r.rating %> out of 5. They said: <%= r.content %></p>
-  </div>
+    <p><%= r.rating %> out of 5.</p><p><%= r.content %></p><br />
 <% end %>
 </div>
+</div>
+
 <button class="js-nextgame" data-id="<%= @game.id %>">Next Game -></button>
-
-
 
 <script type="text/javascript" charset="utf-8">
 $(function() {
   $(".js-nextgame").on("click", function() {
-    var id = $(this).data("id") + 1;
-    $.get("/games/" + id + ".json", function(obj){
-      var consoles = "";
-      var average_rating = 0;
-      var counter = 0;
-      var counter2 = 0;
-      var reviews = "";
-      var objCount = Object.keys(obj).length;
-      var data =  + ",length: objCount";
-      obj["reviews"].forEach(function(elem){
-        average_rating += elem["rating"];
-        var reviewhtml = "<p>" + elem["user_id"].name + "rates this game: " + elem["rating"] + "out of 5. They said: " + elem["content"] + "</p>"
-        var id = elem["id"]
-        $("#r-" + id).html(reviewhtml);
-        counter += 1;
-      })
-      average_rating = average_rating / counter;
+	var id = $(this).data("id") + 1;
+      $.get("/games/" + id + ".json", function(obj){
+      	var consoles = "";
+      	var average_rating = 0;
+        var counter = 0;
+        var reviews = "";
+        var reviewhtml = "";
+        obj["reviews"].forEach(function(elem){
+          average_rating += elem["rating"];
+          reviewhtml +=  "<p>" + elem["rating"] + " out of 5. </p><p>" + elem["content"] + "</p>"
+          counter += 1;
+        })
+       
+	    if (average_rating > 0) {
+      		average_rating = average_rating / counter;
+	    } 
+	    else {
+		      average_rating = "";
+	    }
       obj["consoles"].forEach(function(elem){
         consoles += (" " + elem["name"]);
       })
-      var nextGameHeader = "<h1>" + obj["name"] + "</h1><p>" + obj["release_year"] + "Available On: " + consoles + "Average Rating: " + average_rating + "</p>"
+      var nextGameHeader = "<h1>" + obj["name"] + "</h1><p>Release Year:" + obj["release_year"] + "<br />Available On: " + consoles + "<br />Average Rating: " + average_rating + "</p>"
+      $("#update-ratings").html(reviewhtml);
       $("#game-header").html(nextGameHeader);
+      $(".js-nextgame").data("id", id);
     });
   });
 });
