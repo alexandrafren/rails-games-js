@@ -51,8 +51,19 @@
 
 
 <div class="new-game">
-<%= link_to "Add a New Game", new_game_path %><br>
-<button>Add a New Game</button>
+<button id="game-btn" style="display:block">Add a New Game</button>
+
+<div id="hidden-form" style="display:none">
+<%= form_for :game do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %><br>
+
+    <%= f.label :release_year %>
+    <%= f.text_field :release_year %>
+    <p>Available On:</p>
+    <%= f.collection_check_boxes :console_ids, Console.all, :id, :name %><br>
+  <%= f.submit %>
+<% end %>
 </div>
 </div>
 
@@ -65,6 +76,12 @@
 				$("#game-" + id).html(moreInfo);
 			})
 		})
+
+	$(".new-game").on("click", function() {
+		document.getElementById("game-btn").style.display = "none";
+		document.getElementById("hidden-form").style.display = "block";
+	})
+
 </script>
 
 

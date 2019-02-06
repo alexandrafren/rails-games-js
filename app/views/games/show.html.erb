@@ -21,7 +21,7 @@ Available On: <% @game.consoles.each do |c| %>
   <% @review = Review.find_by(game_id: gameid, user_id: session[:user_id]) %>
 	<% if @review %>
 		<%= link_to "Your Review of this Game", user_path(@user) %>
-	<% else %>
+  <% else %>
 		<%= link_to "Review This Game", new_game_review_path(@game) %>
 	<% end %>
 </div>
