@@ -51,10 +51,11 @@
 
 
 <div class="new-game">
+	<div id="loadnewgame"></div>
 <button id="game-btn" style="display:block">Add a New Game</button>
 
 <div id="hidden-form" style="display:none">
-<%= form_for :game, html: {id: :new_game_form } do |f| %>
+<%= form_for :game do |f| %>
     <%= f.label :name %>
     <%= f.text_field :name %><br>
 
@@ -82,15 +83,15 @@
 		document.getElementById("hidden-form").style.display = "block";
 	})
 
-    $('.new_game_form').submit(function(event){
-      event.preventDefault();
-      var values = $(this).serialize();
-      var posting = $.post('/games', values);
-      posting.done(function(data){
-				var game = data;
-
-      })
-    });
+	$('form:last-child').submit(function(event){
+    event.preventDefault();
+		var values = $(this).serialize();
+		var posting = $.post('/games', values);
+		posting.done(function(data) {
+			var innerhtml = "<a href='/games/" + data["id"] + "'>Created " + data["name"] + "!</a>"
+			$("#loadnewgame").html();
+		});
+  });
 
 </script>
 

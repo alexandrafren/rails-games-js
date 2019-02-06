@@ -23111,3 +23111,550 @@ Processing by GamesController#index as HTML
 Completed 200 OK in 131ms (Views: 129.5ms | ActiveRecord: 0.7ms)
 
 
+Started GET "/games" for 127.0.0.1 at 2019-02-06 12:13:26 -0800
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/learn/.rvm/gems/ruby-2.3.6/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by GamesController#index as HTML
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:44
+  [1m[36mConsole Load (0.3ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles"[0m
+  ↳ app/views/games/index.html.erb:64
+  Rendered games/index.html.erb within layouts/application (397.1ms)
+Completed 200 OK in 1022ms (Views: 978.0ms | ActiveRecord: 2.4ms)
+
+
+Started POST "/games" for 127.0.0.1 at 2019-02-06 12:13:46 -0800
+Processing by GamesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"EQavtoCo12yiaSR0X5LfIx/vHSgeamqbXArPyx9ZOKEArd/8fYqep04CTuX0EzO1AI4kukRorhNxiUtCYrDCAQ==", "game"=>{"name"=>"Kingdom Hearts III", "release_year"=>"2019", "console_ids"=>["", "1", "2"]}, "commit"=>"Save Game"}
+  [1m[36mConsole Load (0.5ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles" WHERE "consoles"."id" IN (?, ?)[0m  [["id", 1], ["id", 2]]
+  ↳ app/controllers/games_controller.rb:25
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/games_controller.rb:29
+  [1m[36mGame Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "games" WHERE "games"."name" = ? LIMIT ?[0m  [["name", "Kingdom Hearts III"], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:29
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/games_controller.rb:29
+  Rendering games/new.html.erb within layouts/application
+  Rendered games/_errors.html.erb (2.6ms)
+  [1m[36mConsole Load (0.2ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles"[0m
+  ↳ app/views/games/new.html.erb:14
+  Rendered games/new.html.erb within layouts/application (39.0ms)
+Completed 200 OK in 200ms (Views: 96.0ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/games" for 127.0.0.1 at 2019-02-06 12:13:59 -0800
+Processing by GamesController#index as HTML
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:44
+  [1m[36mConsole Load (0.2ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles"[0m
+  ↳ app/views/games/index.html.erb:64
+  Rendered games/index.html.erb within layouts/application (17.1ms)
+Completed 200 OK in 83ms (Views: 81.4ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/games" for 127.0.0.1 at 2019-02-06 12:14:17 -0800
+Processing by GamesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7xiHSO9sf8dmK2xQM+ARitYL8as+4lIOxmHrk4FQe0uimAtsEJ6snjxL6D91f5yieE5K0irJ/tITtzUq7l9MVA==", "game"=>{"name"=>"Fallout 76", "release_year"=>"2018", "console_ids"=>["", "1", "2"]}, "commit"=>"Save Game"}
+  [1m[36mConsole Load (0.2ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles" WHERE "consoles"."id" IN (?, ?)[0m  [["id", 1], ["id", 2]]
+  ↳ app/controllers/games_controller.rb:25
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/games_controller.rb:29
+  [1m[36mGame Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "games" WHERE "games"."name" = ? LIMIT ?[0m  [["name", "Fallout 76"], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:29
+  [1m[36mGame Create (12.8ms)[0m  [1m[32mINSERT INTO "games" ("name", "release_year", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Fallout 76"], ["release_year", 2018], ["created_at", "2019-02-06 20:14:17.416654"], ["updated_at", "2019-02-06 20:14:17.416654"]]
+  ↳ app/controllers/games_controller.rb:29
+  [1m[36mConsoleGame Create (0.3ms)[0m  [1m[32mINSERT INTO "console_games" ("console_id", "game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["console_id", 1], ["game_id", 12], ["created_at", "2019-02-06 20:14:17.433659"], ["updated_at", "2019-02-06 20:14:17.433659"]]
+  ↳ app/controllers/games_controller.rb:29
+  [1m[36mConsoleGame Create (0.1ms)[0m  [1m[32mINSERT INTO "console_games" ("console_id", "game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["console_id", 2], ["game_id", 12], ["created_at", "2019-02-06 20:14:17.438866"], ["updated_at", "2019-02-06 20:14:17.438866"]]
+  ↳ app/controllers/games_controller.rb:29
+  [1m[35m (22.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/games_controller.rb:29
+Redirected to http://localhost:3000/games
+Completed 302 Found in 71ms (ActiveRecord: 36.1ms)
+
+
+Started GET "/games" for 127.0.0.1 at 2019-02-06 12:14:17 -0800
+Processing by GamesController#index as HTML
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (6.2ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:44
+  [1m[36mConsole Load (0.2ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles"[0m
+  ↳ app/views/games/index.html.erb:64
+  Rendered games/index.html.erb within layouts/application (15.7ms)
+Completed 200 OK in 83ms (Views: 72.5ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/games/12.json" for 127.0.0.1 at 2019-02-06 12:14:23 -0800
+Processing by GamesController#show as JSON
+  Parameters: {"id"=>"12"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:13
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+[active_model_serializers]   [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."game_id" = ?[0m  [["game_id", 12]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:16
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."game_id" = ?[0m  [["game_id", 12]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:16
+[active_model_serializers]   [1m[36mConsoleGame Load (0.2ms)[0m  [1m[34mSELECT "console_games".* FROM "console_games" WHERE "console_games"."game_id" = ?[0m  [["game_id", 12]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:16
+[active_model_serializers]   [1m[36mConsole Load (0.2ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles" INNER JOIN "console_games" ON "consoles"."id" = "console_games"."console_id" WHERE "console_games"."game_id" = ?[0m  [["game_id", 12]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:16
+[active_model_serializers] Rendered GameSerializer with ActiveModelSerializers::Adapter::Attributes (36.11ms)
+Completed 200 OK in 127ms (Views: 66.0ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/games/12" for 127.0.0.1 at 2019-02-06 12:14:25 -0800
+Processing by GamesController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:13
+  Rendering games/show.html.erb within layouts/application
+  [1m[36mConsole Load (0.1ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles" INNER JOIN "console_games" ON "consoles"."id" = "console_games"."console_id" WHERE "console_games"."game_id" = ?[0m  [["game_id", 12]]
+  ↳ app/views/games/show.html.erb:6
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."game_id" = ?[0m  [["game_id", 12]]
+  ↳ app/models/game.rb:15
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."game_id" = ?[0m  [["game_id", 12]]
+  ↳ app/models/game.rb:18
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."game_id" = ? AND "reviews"."user_id" = ? LIMIT ?[0m  [["game_id", 12], ["user_id", 10], ["LIMIT", 1]]
+  ↳ app/views/games/show.html.erb:21
+  Rendered games/show.html.erb within layouts/application (19.4ms)
+Completed 200 OK in 159ms (Views: 150.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/games" for 127.0.0.1 at 2019-02-06 12:14:27 -0800
+Processing by GamesController#index as HTML
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (3.3ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:44
+  [1m[36mConsole Load (0.2ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles"[0m
+  ↳ app/views/games/index.html.erb:64
+  Rendered games/index.html.erb within layouts/application (22.8ms)
+Completed 200 OK in 160ms (Views: 155.0ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/games" for 127.0.0.1 at 2019-02-06 12:30:45 -0800
+Processing by GamesController#index as HTML
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:44
+  [1m[36mConsole Load (0.2ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles"[0m
+  ↳ app/views/games/index.html.erb:65
+  Rendered games/index.html.erb within layouts/application (28.3ms)
+Completed 200 OK in 188ms (Views: 184.1ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/games" for 127.0.0.1 at 2019-02-06 12:31:13 -0800
+Processing by GamesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"r6pVliilJnZZ2/VvBPhdKHXpLYvURvRW8RhpZsZhwIm+ASXc1YdvvbWwn/6vebG+aogUGY5EMN7cm+3vu4g6KQ==", "game"=>{"name"=>"Kingdom Hearts III", "release_year"=>"2018", "console_ids"=>["", "1", "2"]}, "commit"=>"Save Game"}
+  [1m[36mConsole Load (0.6ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles" WHERE "consoles"."id" IN (?, ?)[0m  [["id", 1], ["id", 2]]
+  ↳ app/controllers/games_controller.rb:25
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/games_controller.rb:29
+  [1m[36mGame Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "games" WHERE "games"."name" = ? LIMIT ?[0m  [["name", "Kingdom Hearts III"], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:29
+  [1m[36mGame Create (57.4ms)[0m  [1m[32mINSERT INTO "games" ("name", "release_year", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Kingdom Hearts III"], ["release_year", 2018], ["created_at", "2019-02-06 20:31:13.458199"], ["updated_at", "2019-02-06 20:31:13.458199"]]
+  ↳ app/controllers/games_controller.rb:29
+  [1m[36mConsoleGame Create (0.2ms)[0m  [1m[32mINSERT INTO "console_games" ("console_id", "game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["console_id", 1], ["game_id", 13], ["created_at", "2019-02-06 20:31:13.518712"], ["updated_at", "2019-02-06 20:31:13.518712"]]
+  ↳ app/controllers/games_controller.rb:29
+  [1m[36mConsoleGame Create (0.2ms)[0m  [1m[32mINSERT INTO "console_games" ("console_id", "game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["console_id", 2], ["game_id", 13], ["created_at", "2019-02-06 20:31:13.524416"], ["updated_at", "2019-02-06 20:31:13.524416"]]
+  ↳ app/controllers/games_controller.rb:29
+  [1m[35m (22.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/games_controller.rb:29
+Redirected to http://localhost:3000/games
+Completed 302 Found in 112ms (ActiveRecord: 81.3ms)
+
+
+Started GET "/games" for 127.0.0.1 at 2019-02-06 12:31:13 -0800
+Processing by GamesController#index as HTML
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:44
+  [1m[36mConsole Load (0.7ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles"[0m
+  ↳ app/views/games/index.html.erb:65
+  Rendered games/index.html.erb within layouts/application (17.6ms)
+Completed 200 OK in 111ms (Views: 108.8ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/games" for 127.0.0.1 at 2019-02-06 12:53:52 -0800
+Processing by GamesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kLsgKvHXs0Tb0I+aFnhUKKKwvZd8npu+ZxgNi5sfdNmBEFBgDPX6jze75Qu9+bi+vdGEBSacXzZKm4kC5vaOeQ==", "game"=>{"name"=>"Fable", "release_year"=>"1900", "console_ids"=>["", "2"]}, "commit"=>"Save Game"}
+  [1m[36mConsole Load (0.4ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles" WHERE "consoles"."id" = ?[0m  [["id", 2]]
+  ↳ app/controllers/games_controller.rb:25
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/games_controller.rb:29
+  [1m[36mGame Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "games" WHERE "games"."name" = ? LIMIT ?[0m  [["name", "Fable"], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:29
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/games_controller.rb:29
+  Rendering games/new.html.erb within layouts/application
+  Rendered games/_errors.html.erb (1.2ms)
+  [1m[36mConsole Load (0.2ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles"[0m
+  ↳ app/views/games/new.html.erb:14
+  Rendered games/new.html.erb within layouts/application (25.9ms)
+Completed 200 OK in 148ms (Views: 121.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/games" for 127.0.0.1 at 2019-02-06 12:54:05 -0800
+Processing by GamesController#index as HTML
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:44
+  [1m[36mConsole Load (0.4ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles"[0m
+  ↳ app/views/games/index.html.erb:65
+  Rendered games/index.html.erb within layouts/application (25.0ms)
+Completed 200 OK in 118ms (Views: 115.5ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/games" for 127.0.0.1 at 2019-02-06 12:54:17 -0800
+Processing by GamesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1CweUagxf9IHCkoNJV2mBtLLvI5Su9zBPLx6oR6bksOZrJJ1V8Osi11qzmJjwisufI4H90aQcB3paqQYcZSl3A==", "game"=>{"name"=>"Fable", "release_year"=>"1960", "console_ids"=>["", "4"]}, "commit"=>"Save Game"}
+  [1m[36mConsole Load (0.4ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles" WHERE "consoles"."id" = ?[0m  [["id", 4]]
+  ↳ app/controllers/games_controller.rb:25
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/games_controller.rb:29
+  [1m[36mGame Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "games" WHERE "games"."name" = ? LIMIT ?[0m  [["name", "Fable"], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:29
+  [1m[36mGame Create (9.5ms)[0m  [1m[32mINSERT INTO "games" ("name", "release_year", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Fable"], ["release_year", 1960], ["created_at", "2019-02-06 20:54:17.055816"], ["updated_at", "2019-02-06 20:54:17.055816"]]
+  ↳ app/controllers/games_controller.rb:29
+  [1m[36mConsoleGame Create (0.2ms)[0m  [1m[32mINSERT INTO "console_games" ("console_id", "game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["console_id", 4], ["game_id", 14], ["created_at", "2019-02-06 20:54:17.070363"], ["updated_at", "2019-02-06 20:54:17.070363"]]
+  ↳ app/controllers/games_controller.rb:29
+  [1m[35m (18.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/games_controller.rb:29
+Redirected to http://localhost:3000/games
+Completed 302 Found in 60ms (ActiveRecord: 29.5ms)
+
+
+Started GET "/games" for 127.0.0.1 at 2019-02-06 12:54:17 -0800
+Processing by GamesController#index as HTML
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:44
+  [1m[36mConsole Load (0.2ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles"[0m
+  ↳ app/views/games/index.html.erb:65
+  Rendered games/index.html.erb within layouts/application (22.1ms)
+Completed 200 OK in 147ms (Views: 141.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/games/14.json" for 127.0.0.1 at 2019-02-06 12:54:22 -0800
+Processing by GamesController#show as JSON
+  Parameters: {"id"=>"14"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:13
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+[active_model_serializers]   [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."game_id" = ?[0m  [["game_id", 14]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:16
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."game_id" = ?[0m  [["game_id", 14]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:16
+[active_model_serializers]   [1m[36mConsoleGame Load (0.2ms)[0m  [1m[34mSELECT "console_games".* FROM "console_games" WHERE "console_games"."game_id" = ?[0m  [["game_id", 14]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:16
+[active_model_serializers]   [1m[36mConsole Load (2.9ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles" INNER JOIN "console_games" ON "consoles"."id" = "console_games"."console_id" WHERE "console_games"."game_id" = ?[0m  [["game_id", 14]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:16
+[active_model_serializers] Rendered GameSerializer with ActiveModelSerializers::Adapter::Attributes (41.59ms)
+Completed 200 OK in 55ms (Views: 41.4ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/games" for 127.0.0.1 at 2019-02-06 13:00:59 -0800
+Processing by GamesController#index as HTML
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.7ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:44
+  [1m[36mConsole Load (0.3ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles"[0m
+  ↳ app/views/games/index.html.erb:65
+  Rendered games/index.html.erb within layouts/application (55.1ms)
+Completed 200 OK in 152ms (Views: 131.3ms | ActiveRecord: 4.7ms)
+
+
+Started POST "/games" for 127.0.0.1 at 2019-02-06 13:01:11 -0800
+Processing by GamesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jB87X5W6J9xN87DW4Oik5r+mEO+cqS25f3KXfBltLBOdtEsVaJhuF6GY2kdLaUhwoMcpfcar6TFS8RP1ZITWsw==", "game"=>{"name"=>"TEST", "release_year"=>"1997", "console_ids"=>["", "5"]}, "commit"=>"Save Game"}
+  [1m[36mConsole Load (0.2ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles" WHERE "consoles"."id" = ?[0m  [["id", 5]]
+  ↳ app/controllers/games_controller.rb:25
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/games_controller.rb:29
+  [1m[36mGame Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "games" WHERE "games"."name" = ? LIMIT ?[0m  [["name", "TEST"], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:29
+  [1m[36mGame Create (0.9ms)[0m  [1m[32mINSERT INTO "games" ("name", "release_year", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "TEST"], ["release_year", 1997], ["created_at", "2019-02-06 21:01:11.473441"], ["updated_at", "2019-02-06 21:01:11.473441"]]
+  ↳ app/controllers/games_controller.rb:29
+  [1m[36mConsoleGame Create (0.3ms)[0m  [1m[32mINSERT INTO "console_games" ("console_id", "game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["console_id", 5], ["game_id", 15], ["created_at", "2019-02-06 21:01:11.479479"], ["updated_at", "2019-02-06 21:01:11.479479"]]
+  ↳ app/controllers/games_controller.rb:29
+  [1m[35m (14.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/games_controller.rb:29
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+[active_model_serializers]   [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."game_id" = ?[0m  [["game_id", 15]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:30
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."game_id" = ?[0m  [["game_id", 15]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:30
+[active_model_serializers]   [1m[36mConsoleGame Load (0.5ms)[0m  [1m[34mSELECT "console_games".* FROM "console_games" WHERE "console_games"."game_id" = ?[0m  [["game_id", 15]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:30
+[active_model_serializers] Rendered GameSerializer with ActiveModelSerializers::Adapter::Attributes (43.13ms)
+Completed 200 OK in 188ms (Views: 87.7ms | ActiveRecord: 19.4ms)
+
+
+Started POST "/games" for 127.0.0.1 at 2019-02-06 13:06:38 -0800
+Processing by GamesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jB87X5W6J9xN87DW4Oik5r+mEO+cqS25f3KXfBltLBOdtEsVaJhuF6GY2kdLaUhwoMcpfcar6TFS8RP1ZITWsw==", "game"=>{"name"=>"TEST", "release_year"=>"1997", "console_ids"=>["", "5"]}, "commit"=>"Save Game"}
+  [1m[36mConsole Load (0.3ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles" WHERE "consoles"."id" = ?[0m  [["id", 5]]
+  ↳ app/controllers/games_controller.rb:25
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/games_controller.rb:29
+  [1m[36mGame Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "games" WHERE "games"."name" = ? LIMIT ?[0m  [["name", "TEST"], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:29
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/games_controller.rb:29
+  Rendering games/new.html.erb within layouts/application
+  Rendered games/_errors.html.erb (4.8ms)
+  [1m[36mConsole Load (0.2ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles"[0m
+  ↳ app/views/games/new.html.erb:14
+  Rendered games/new.html.erb within layouts/application (49.0ms)
+Completed 200 OK in 197ms (Views: 166.8ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/games" for 127.0.0.1 at 2019-02-06 13:06:42 -0800
+Processing by GamesController#index as HTML
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:44
+  [1m[36mConsole Load (0.2ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles"[0m
+  ↳ app/views/games/index.html.erb:65
+  Rendered games/index.html.erb within layouts/application (20.2ms)
+Completed 200 OK in 107ms (Views: 105.9ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/games" for 127.0.0.1 at 2019-02-06 13:06:55 -0800
+Processing by GamesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"UDm8XP1pStewbdUzmwrKRP0JJd9LJ6Aqe8eM+E3LpywduTB4ApuZjuoNUVzdlUdsU0yepl8MDPauEVJBIsSQMw==", "game"=>{"name"=>"hey", "release_year"=>"1998", "console_ids"=>["", "4"]}, "commit"=>"Save Game"}
+  [1m[36mConsole Load (0.2ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles" WHERE "consoles"."id" = ?[0m  [["id", 4]]
+  ↳ app/controllers/games_controller.rb:25
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/games_controller.rb:29
+  [1m[36mGame Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "games" WHERE "games"."name" = ? LIMIT ?[0m  [["name", "hey"], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:29
+  [1m[36mGame Create (3.5ms)[0m  [1m[32mINSERT INTO "games" ("name", "release_year", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "hey"], ["release_year", 1998], ["created_at", "2019-02-06 21:06:55.797672"], ["updated_at", "2019-02-06 21:06:55.797672"]]
+  ↳ app/controllers/games_controller.rb:29
+  [1m[36mConsoleGame Create (0.2ms)[0m  [1m[32mINSERT INTO "console_games" ("console_id", "game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["console_id", 4], ["game_id", 16], ["created_at", "2019-02-06 21:06:55.811543"], ["updated_at", "2019-02-06 21:06:55.811543"]]
+  ↳ app/controllers/games_controller.rb:29
+  [1m[35m (19.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/games_controller.rb:29
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+[active_model_serializers]   [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."game_id" = ?[0m  [["game_id", 16]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:30
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."game_id" = ?[0m  [["game_id", 16]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:30
+[active_model_serializers]   [1m[36mConsoleGame Load (0.2ms)[0m  [1m[34mSELECT "console_games".* FROM "console_games" WHERE "console_games"."game_id" = ?[0m  [["game_id", 16]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:30
+[active_model_serializers] Rendered GameSerializer with ActiveModelSerializers::Adapter::Attributes (19.48ms)
+Completed 200 OK in 88ms (Views: 27.8ms | ActiveRecord: 24.1ms)
+
+
+Started GET "/games" for 127.0.0.1 at 2019-02-06 13:07:34 -0800
+Processing by GamesController#index as HTML
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (4.0ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:44
+  [1m[36mConsole Load (0.2ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles"[0m
+  ↳ app/views/games/index.html.erb:65
+  Rendered games/index.html.erb within layouts/application (17.6ms)
+Completed 200 OK in 86ms (Views: 81.1ms | ActiveRecord: 4.2ms)
+
+
+Started POST "/games" for 127.0.0.1 at 2019-02-06 13:15:44 -0800
+Processing by GamesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"UJumayEht7OrrSnyMnODwJjZJE8Q/vYr8b0/ZybT6mdBMNYh3AP+eEfGQ2OZ8m9Wh7gd3Ur8MqPcPrvuWzoQxw==", "game"=>{"name"=>"ugh", "release_year"=>"1998", "console_ids"=>["", "2"]}, "commit"=>"Save Game"}
+  [1m[36mConsole Load (0.2ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles" WHERE "consoles"."id" = ?[0m  [["id", 2]]
+  ↳ app/controllers/games_controller.rb:25
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/games_controller.rb:29
+  [1m[36mGame Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "games" WHERE "games"."name" = ? LIMIT ?[0m  [["name", "ugh"], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:29
+  [1m[36mGame Create (0.2ms)[0m  [1m[32mINSERT INTO "games" ("name", "release_year", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "ugh"], ["release_year", 1998], ["created_at", "2019-02-06 21:15:44.968317"], ["updated_at", "2019-02-06 21:15:44.968317"]]
+  ↳ app/controllers/games_controller.rb:29
+  [1m[36mConsoleGame Create (0.2ms)[0m  [1m[32mINSERT INTO "console_games" ("console_id", "game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["console_id", 2], ["game_id", 17], ["created_at", "2019-02-06 21:15:44.975500"], ["updated_at", "2019-02-06 21:15:44.975500"]]
+  ↳ app/controllers/games_controller.rb:29
+  [1m[35m (31.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/games_controller.rb:29
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+[active_model_serializers]   [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."game_id" = ?[0m  [["game_id", 17]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:30
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."game_id" = ?[0m  [["game_id", 17]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:30
+[active_model_serializers]   [1m[36mConsoleGame Load (0.3ms)[0m  [1m[34mSELECT "console_games".* FROM "console_games" WHERE "console_games"."game_id" = ?[0m  [["game_id", 17]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:30
+[active_model_serializers] Rendered GameSerializer with ActiveModelSerializers::Adapter::Attributes (15.58ms)
+Completed 200 OK in 88ms (Views: 21.5ms | ActiveRecord: 33.4ms)
+
+
+Started POST "/games" for 127.0.0.1 at 2019-02-06 13:17:56 -0800
+Processing by GamesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"UJumayEht7OrrSnyMnODwJjZJE8Q/vYr8b0/ZybT6mdBMNYh3AP+eEfGQ2OZ8m9Wh7gd3Ur8MqPcPrvuWzoQxw==", "game"=>{"name"=>"testingggggggggggggg", "release_year"=>"1998", "console_ids"=>["", "2"]}, "commit"=>"Save Game"}
+  [1m[36mConsole Load (2.5ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles" WHERE "consoles"."id" = ?[0m  [["id", 2]]
+  ↳ app/controllers/games_controller.rb:25
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/games_controller.rb:29
+  [1m[36mGame Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "games" WHERE "games"."name" = ? LIMIT ?[0m  [["name", "testingggggggggggggg"], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:29
+  [1m[36mGame Create (14.4ms)[0m  [1m[32mINSERT INTO "games" ("name", "release_year", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "testingggggggggggggg"], ["release_year", 1998], ["created_at", "2019-02-06 21:17:56.189572"], ["updated_at", "2019-02-06 21:17:56.189572"]]
+  ↳ app/controllers/games_controller.rb:29
+  [1m[36mConsoleGame Create (0.1ms)[0m  [1m[32mINSERT INTO "console_games" ("console_id", "game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["console_id", 2], ["game_id", 18], ["created_at", "2019-02-06 21:17:56.208989"], ["updated_at", "2019-02-06 21:17:56.208989"]]
+  ↳ app/controllers/games_controller.rb:29
+  [1m[35m (15.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/games_controller.rb:29
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+[active_model_serializers]   [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."game_id" = ?[0m  [["game_id", 18]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:30
+[active_model_serializers]   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."game_id" = ?[0m  [["game_id", 18]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:30
+[active_model_serializers]   [1m[36mConsoleGame Load (0.1ms)[0m  [1m[34mSELECT "console_games".* FROM "console_games" WHERE "console_games"."game_id" = ?[0m  [["game_id", 18]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:30
+[active_model_serializers] Rendered GameSerializer with ActiveModelSerializers::Adapter::Attributes (21.64ms)
+Completed 200 OK in 97ms (Views: 25.9ms | ActiveRecord: 33.8ms)
+
+
+Started GET "/games" for 127.0.0.1 at 2019-02-06 13:18:03 -0800
+Processing by GamesController#index as HTML
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:44
+  [1m[36mConsole Load (5.1ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles"[0m
+  ↳ app/views/games/index.html.erb:65
+  Rendered games/index.html.erb within layouts/application (21.5ms)
+Completed 200 OK in 163ms (Views: 152.2ms | ActiveRecord: 5.6ms)
+
+
+Started GET "/games" for 127.0.0.1 at 2019-02-06 13:21:29 -0800
+Processing by GamesController#index as HTML
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:44
+  [1m[36mConsole Load (0.2ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles"[0m
+  ↳ app/views/games/index.html.erb:65
+  Rendered games/index.html.erb within layouts/application (12.2ms)
+Completed 200 OK in 65ms (Views: 64.1ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/games" for 127.0.0.1 at 2019-02-06 13:26:46 -0800
+Processing by GamesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"35jJiMEF2pvSCxyVbenzMaVg2+pZ8AkewZdA3UstT6rOM7nCPCeTUD5gdgTGaB+nugHieAPyzZbsFMRUNsS1Cg==", "game"=>{"name"=>"pleasework", "release_year"=>"1998", "console_ids"=>["", "3"]}, "commit"=>"Save Game"}
+  [1m[36mConsole Load (0.2ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles" WHERE "consoles"."id" = ?[0m  [["id", 3]]
+  ↳ app/controllers/games_controller.rb:25
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/games_controller.rb:29
+  [1m[36mGame Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "games" WHERE "games"."name" = ? LIMIT ?[0m  [["name", "pleasework"], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:29
+  [1m[36mGame Create (3.3ms)[0m  [1m[32mINSERT INTO "games" ("name", "release_year", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "pleasework"], ["release_year", 1998], ["created_at", "2019-02-06 21:26:46.538583"], ["updated_at", "2019-02-06 21:26:46.538583"]]
+  ↳ app/controllers/games_controller.rb:29
+  [1m[36mConsoleGame Create (0.2ms)[0m  [1m[32mINSERT INTO "console_games" ("console_id", "game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["console_id", 3], ["game_id", 19], ["created_at", "2019-02-06 21:26:46.543909"], ["updated_at", "2019-02-06 21:26:46.543909"]]
+  ↳ app/controllers/games_controller.rb:29
+  [1m[35m (33.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/games_controller.rb:29
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+[active_model_serializers]   [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."game_id" = ?[0m  [["game_id", 19]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:30
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."game_id" = ?[0m  [["game_id", 19]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:30
+[active_model_serializers]   [1m[36mConsoleGame Load (0.5ms)[0m  [1m[34mSELECT "console_games".* FROM "console_games" WHERE "console_games"."game_id" = ?[0m  [["game_id", 19]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:30
+[active_model_serializers] Rendered GameSerializer with ActiveModelSerializers::Adapter::Attributes (18.14ms)
+Completed 200 OK in 85ms (Views: 20.3ms | ActiveRecord: 38.6ms)
+
+
+Started POST "/games" for 127.0.0.1 at 2019-02-06 13:31:11 -0800
+Processing by GamesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"35jJiMEF2pvSCxyVbenzMaVg2+pZ8AkewZdA3UstT6rOM7nCPCeTUD5gdgTGaB+nugHieAPyzZbsFMRUNsS1Cg==", "game"=>{"name"=>"pleasework", "release_year"=>"1998", "console_ids"=>["", "3"]}, "commit"=>"Save Game"}
+  [1m[36mConsole Load (0.3ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles" WHERE "consoles"."id" = ?[0m  [["id", 3]]
+  ↳ app/controllers/games_controller.rb:25
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/games_controller.rb:29
+  [1m[36mGame Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "games" WHERE "games"."name" = ? LIMIT ?[0m  [["name", "pleasework"], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:29
+  [1m[35m (2.3ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/games_controller.rb:29
+  Rendering games/new.html.erb within layouts/application
+  Rendered games/_errors.html.erb (5.4ms)
+  [1m[36mConsole Load (2.2ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles"[0m
+  ↳ app/views/games/new.html.erb:14
+  Rendered games/new.html.erb within layouts/application (24.9ms)
+Completed 200 OK in 131ms (Views: 108.9ms | ActiveRecord: 5.2ms)
+
+
+Started GET "/games" for 127.0.0.1 at 2019-02-06 13:31:15 -0800
+Processing by GamesController#index as HTML
+  Rendering games/index.html.erb within layouts/application
+  Rendered games/index.html.erb within layouts/application (2.6ms)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/learn/Development/Code/rails-portfolio/rails-games-js/app/views/games/index.html.erb:58: syntax error, unexpected ')'
+...: {name: "newgameform"}do |f| );@output_buffer.safe_append='
+...                               ^
+/home/learn/Development/Code/rails-portfolio/rails-games-js/app/views/games/index.html.erb:98: syntax error, unexpected keyword_ensure, expecting ')'
+/home/learn/Development/Code/rails-portfolio/rails-games-js/app/views/games/index.html.erb:100: syntax error, unexpected keyword_end, expecting ')'):
+  
+app/views/games/index.html.erb:58: syntax error, unexpected ')'
+app/views/games/index.html.erb:98: syntax error, unexpected keyword_ensure, expecting ')'
+app/views/games/index.html.erb:100: syntax error, unexpected keyword_end, expecting ')'
+app/controllers/games_controller.rb:6:in `block (2 levels) in index'
+app/controllers/games_controller.rb:5:in `index'
+Started GET "/games" for 127.0.0.1 at 2019-02-06 13:31:45 -0800
+Processing by GamesController#index as HTML
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.8ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:44
+  [1m[36mConsole Load (0.2ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles"[0m
+  ↳ app/views/games/index.html.erb:65
+  Rendered games/index.html.erb within layouts/application (12.4ms)
+Completed 200 OK in 101ms (Views: 98.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/games" for 127.0.0.1 at 2019-02-06 13:35:32 -0800
+Processing by GamesController#index as HTML
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:44
+  [1m[36mConsole Load (0.3ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles"[0m
+  ↳ app/views/games/index.html.erb:65
+  Rendered games/index.html.erb within layouts/application (21.1ms)
+Completed 200 OK in 101ms (Views: 99.3ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/games" for 127.0.0.1 at 2019-02-06 13:35:49 -0800
+Processing by GamesController#create as */*
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tq1mmQk/+Fyhc0QyqDUNsbXxMNWU+U0OEbfUMFL2tx2nBhbT9B2xl00YLqMDtOEnqpAJR877iYY8NFC5Lx9NvQ==", "game"=>{"name"=>"aint no crying in the club", "release_year"=>"1972", "console_ids"=>["", "2"]}}
+  [1m[36mConsole Load (0.3ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles" WHERE "consoles"."id" = ?[0m  [["id", 2]]
+  ↳ app/controllers/games_controller.rb:25
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/games_controller.rb:29
+  [1m[36mGame Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "games" WHERE "games"."name" = ? LIMIT ?[0m  [["name", "aint no crying in the club"], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:29
+  [1m[36mGame Create (4.0ms)[0m  [1m[32mINSERT INTO "games" ("name", "release_year", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "aint no crying in the club"], ["release_year", 1972], ["created_at", "2019-02-06 21:35:49.279086"], ["updated_at", "2019-02-06 21:35:49.279086"]]
+  ↳ app/controllers/games_controller.rb:29
+  [1m[36mConsoleGame Create (0.2ms)[0m  [1m[32mINSERT INTO "console_games" ("console_id", "game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["console_id", 2], ["game_id", 20], ["created_at", "2019-02-06 21:35:49.285517"], ["updated_at", "2019-02-06 21:35:49.285517"]]
+  ↳ app/controllers/games_controller.rb:29
+  [1m[35m (15.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/games_controller.rb:29
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+[active_model_serializers]   [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."game_id" = ?[0m  [["game_id", 20]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:30
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."game_id" = ?[0m  [["game_id", 20]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:30
+[active_model_serializers]   [1m[36mConsoleGame Load (0.2ms)[0m  [1m[34mSELECT "console_games".* FROM "console_games" WHERE "console_games"."game_id" = ?[0m  [["game_id", 20]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:30
+[active_model_serializers] Rendered GameSerializer with ActiveModelSerializers::Adapter::Attributes (14.68ms)
+Completed 200 OK in 61ms (Views: 15.4ms | ActiveRecord: 20.9ms)
+
+

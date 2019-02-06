@@ -27,7 +27,7 @@ class GamesController < ApplicationController
 			@game.reviews.first.user_id = current_user.id
 		end
 		if @game.save
-			redirect_to '/games'
+			render json: @game, status: 201
 		else
 			render :new
 		end
