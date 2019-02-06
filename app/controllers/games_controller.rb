@@ -23,7 +23,9 @@ class GamesController < ApplicationController
 
 	def create
 		@game = Game.new(games_params)
-		@game.reviews.first.user_id = current_user.id
+		if games_params.include?(:content)
+			@game.reviews.first.user_id = current_user.id
+		end
 		if @game.save
 			redirect_to '/games'
 		else
