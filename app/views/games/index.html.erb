@@ -89,7 +89,8 @@
 		var posting = $.post('/games', values);
 		posting.done(function(data) {
 			var innerhtml = "<a href='/games/" + data["id"] + "'>Created " + data["name"] + "!</a>"
-			$("#loadnewgame").html();
+			$("#loadnewgame").html(innerhtml);
+			document.getElementById("hidden-form").style.display = "none";
 		});
   });
 
