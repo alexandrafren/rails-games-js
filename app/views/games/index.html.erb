@@ -70,13 +70,37 @@
 
 
 <script>
+function Game(id, name, release_year, consoles){
+	this.id = id;
+	this.name = name;
+	this.release_year = release_year;
+	this.consoles = consoles;
+};
+
+
+function Console(name){
+	this.name = name;
+}
+
+Game.prototype.moreinfo = function() {
+		return "<h3>" + this.name + "</h3><p>" + this.release_year + "</p><p>Available On: " + this.consoles + "</p><a href='/games/" + this.id + "'>See Ratings & Reviews</a>"
+};
+
+
 	$(".js-more").on("click", function() {
 		   	var id = $(this).data("id");
 			$.get("/games/" + id + ".json", function(obj) {
-				var moreInfo = "<h3>" + obj["name"] + "</h3><p>" + obj["release_year"] + "</p><p>Available On:" + obj["consoles"]["0"]["name"] + "</p><a href='/games/" + id +"'>See Ratings & Reviews</a>"
-				$("#game-" + id).html(moreInfo);
-			})
+					let consoles = "";
+					obj["consoles"].forEach(function(console){
+						let x = new Console(console["name"]);
+						consoles += " " + x.name ;
+					})
+					let thisgame = new Game(id, obj["name"], obj["release_year"], consoles)
+					$("#game-" + id).html(thisgame.moreinfo());
 		})
+	});
+
+
 
 	$(".new-game").on("click", function() {
 		document.getElementById("game-btn").style.display = "none";
