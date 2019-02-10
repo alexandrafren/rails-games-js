@@ -5,11 +5,13 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <link rel="stylesheet" href="/layout.css">
+    <script type="text/javascript" src="games.js"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application' %>
   </head>
 
   <body>
+    <h3>Rails Games</h3>
     <div class="nav-bar">
        <% if session[:user_id] %>
         <a href='/games'>Home</a>
