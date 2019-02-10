@@ -40,35 +40,61 @@ Available On: <% @game.consoles.each do |c| %>
 <button class="js-nextgame" data-id="<%= @game.id %>">Next Game -></button>
 
 <script type="text/javascript" charset="utf-8">
+function Game(id, name, release_year, consoles, reviews){
+	this.id = id;
+	this.name = name;
+	this.release_year = release_year;
+	this.consoles = consoles;
+  this.reviews = reviews;
+};
+
+Game.prototype.averagerating = function(average_rating, counter) {
+  if (average_rating > 0) {
+      average_rating = average_rating / counter;
+  } 
+  else {
+      average_rating = "";
+  }  
+}
+
+Game.prototype.gameheader = function(average_rating) {
+  return "<h1>" + this.name + "</h1><p>Release Year:" + this.release_year + "<br />Available On: " + this.consoles + "<br />Average Rating: " + average_rating + "</p>"
+}
+
+
+function Console(name){
+	this.name = name;
+}
+
+function Review(rating, content) {
+  this.rating = rating;
+  this.content = content;
+}
+
 $(function() {
   $(".js-nextgame").on("click", function() {
 	var id = $(this).data("id") + 1;
       $.get("/games/" + id + ".json", function(obj){
-      	var consoles = "";
-      	var average_rating = 0;
+        let consoles = "";
+        let reviews = "";
+        var average_rating = 0;
         var counter = 0;
-        var reviews = "";
-        var reviewhtml = "";
-        obj["reviews"].forEach(function(elem){
-          average_rating += elem["rating"];
-          reviewhtml +=  "<p>" + elem["rating"] + " out of 5. </p><p>" + elem["content"] + "</p>"
+        obj["consoles"].forEach(function(console){
+          let x = new Console(console["name"]);
+          consoles += " " + x.name ;
+        })
+        obj["reviews"].forEach(function(review){
+          let x = new Review(review["rating"], review["content"])
+          reviews += "<p>" + x.rating + " out of 5. </p><p>" + x.content + "</p>"
+          average_rating += x.rating;
           counter += 1;
         })
-       
-	    if (average_rating > 0) {
-      		average_rating = average_rating / counter;
-	    } 
-	    else {
-		      average_rating = "";
-	    }
-      obj["consoles"].forEach(function(elem){
-        consoles += (" " + elem["name"]);
-      })
-      var nextGameHeader = "<h1>" + obj["name"] + "</h1><p>Release Year:" + obj["release_year"] + "<br />Available On: " + consoles + "<br />Average Rating: " + average_rating + "</p>"
-      $("#update-ratings").html(reviewhtml);
-      $("#game-header").html(nextGameHeader);
-      $(".js-nextgame").data("id", id);
-      $("#js-review").erb("<%= gameid = " + id) + "%>")
+        let thisgame = new Game(id, obj["name"], obj["release_year"], consoles, reviews)
+        average_rating = thisgame.averagerating(average_rating, counter);
+        $("#update-ratings").html(thisgame.reviews);
+        $("#game-header").html(thisgame.gameheader(average_rating));
+        $(".js-nextgame").data("id", id);
+        $("#js-review").erb("<%= gameid = " + id) + "%>")
     });
   });
 });
