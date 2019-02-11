@@ -50,10 +50,10 @@ function Game(id, name, release_year, consoles, reviews){
 
 Game.prototype.averagerating = function(average_rating, counter) {
   if (average_rating > 0) {
-      average_rating = average_rating / counter;
+      return average_rating / counter;
   } 
   else {
-      average_rating = "";
+      return "Not Yet Reviewed";
   }  
 }
 
@@ -90,9 +90,8 @@ $(function() {
           counter += 1;
         })
         let thisgame = new Game(id, obj["name"], obj["release_year"], consoles, reviews)
-        average_rating = thisgame.averagerating(average_rating, counter);
         $("#update-ratings").html(thisgame.reviews);
-        $("#game-header").html(thisgame.gameheader(average_rating));
+        $("#game-header").html(thisgame.gameheader(thisgame.averagerating(average_rating, counter)));
         $(".js-nextgame").data("id", id);
         $("#js-review").erb("<%= gameid = " + id) + "%>")
     });

@@ -28,6 +28,7 @@ u2 = User.create(name: "seconduser", password: "password", password_confirmation
 u3 = User.create(name: "thirduser", password: "password", password_confirmation: "password")
 u4 = User.create(name: "fourthuser", password: "password", password_confirmation: "password")
 u5 = User.create(name: "fifthuser", password: "password", password_confirmation: "password")
+u10 = User.create(name: "alexf", password: "passcode", password_confirmation: "passcode")
 r1 = Review.create(rating: 5, content: "Game is most dope", user_id: 1, game_id: 1)
 r2 = Review.create(rating: 4, content: "I loved this game, but the hyperrealism freaked me out at some times", user_id: 1, game_id: 2)
 r3 = Review.create(rating: 2, content: "Peace, Love, and no War", user_id: 3, game_id: 1)
