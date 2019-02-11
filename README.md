@@ -10,6 +10,9 @@ After checking out the repo, run bundle install to install dependencies. Run rak
 
 Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/'alexandrafren'/nytimesbooks. License
+Bug reports and pull requests are welcome on GitHub at https://github.com/'alexandrafren'/rails-games-js
+
+
+License
 
 The application is available as open source under the terms of the MIT License.
