@@ -73,12 +73,12 @@ function Review(rating, content) {
 
 $(function() {
   $(".js-nextgame").on("click", function() {
-	var id = $(this).data("id") + 1;
+	const id = $(this).data("id") + 1;
       $.get("/games/" + id + ".json", function(obj){
         let consoles = "";
         let reviews = "";
-        var average_rating = 0;
-        var counter = 0;
+        let average_rating = 0;
+        let counter = 0;
         obj["consoles"].forEach(function(console){
           let x = new Console(console["name"]);
           consoles += " " + x.name ;
