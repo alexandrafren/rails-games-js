@@ -112,7 +112,7 @@ Game.prototype.moreinfo = function() {
 		const values = $(this).serialize();
 		const posting = $.post('/games', values);
 		posting.done(function(data) {
-			var innerhtml = "<a href='/games/" + data["id"] + "'>Created " + data["name"] + "!</a>"
+			let innerhtml = "<a href='/games/" + data["id"] + "'>Created " + data["name"] + "!</a>"
 			$("#loadnewgame").html(innerhtml);
 			document.getElementById("hidden-form").style.display = "none";
 		});
