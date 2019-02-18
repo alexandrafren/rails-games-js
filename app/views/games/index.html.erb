@@ -79,6 +79,10 @@ class Game {
 	moreinfo(){
 		return "<h3>" + this.name + "</h3><p>" + this.release_year + "</p><p>Available On: " + this.consoles + "</p><a href='/games/" + this.id + "'>See Ratings & Reviews</a>"
 	};
+
+	buttonHTML() {
+		return "<div id='game-" + y.id +"'> <button class='js-more' data-id='" + y.id + "'>" + y.name + "</button></div>"
+	}
 };
 
 
@@ -114,11 +118,19 @@ function compare(a, b) {
 	});
 
 	$("#alphabetize-games").on("click", function(){
-		console.log("this will test to see if we can alphabetize")
 		let counter = 0;
+		let gamesHTML = "";
 		$.get("/games.json", function(obj){
 			while(counter < Object.keys(obj).length){
-				console.log(obj[counter]["name"])
+				let consoles = "";
+				let object = obj[counter];
+				object["consoles"].forEach(function(console){
+					let x = new Console(console["name"]);
+					consoles += " " + x.name ;
+				})
+				let y = new Game(object["id"], object["name"], object["release_year"], consoles);
+				
+				console.log(gamesHTML)
 				counter += 1;
 			}
 		})

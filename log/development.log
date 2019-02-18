@@ -33025,3 +33025,341 @@ Processing by GamesController#index as JSON
 Completed 200 OK in 200ms (Views: 191.5ms | ActiveRecord: 8.2ms)
 
 
+Started GET "/games" for 127.0.0.1 at 2019-02-18 12:57:29 -0800
+Processing by GamesController#index as HTML
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:43
+  [1m[36mConsole Load (0.2ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles"[0m
+  ↳ app/views/games/index.html.erb:64
+  Rendered games/index.html.erb within layouts/application (20.5ms)
+Completed 200 OK in 111ms (Views: 109.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/games.json" for 127.0.0.1 at 2019-02-18 12:57:32 -0800
+Processing by GamesController#index as JSON
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."game_id" = ?[0m  [["game_id", 1]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."game_id" = ?[0m  [["game_id", 1]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mConsoleGame Load (0.4ms)[0m  [1m[34mSELECT "console_games".* FROM "console_games" WHERE "console_games"."game_id" = ?[0m  [["game_id", 1]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mConsole Load (0.3ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles" INNER JOIN "console_games" ON "consoles"."id" = "console_games"."console_id" WHERE "console_games"."game_id" = ?[0m  [["game_id", 1]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."game_id" = ?[0m  [["game_id", 2]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."game_id" = ?[0m  [["game_id", 2]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mConsoleGame Load (0.1ms)[0m  [1m[34mSELECT "console_games".* FROM "console_games" WHERE "console_games"."game_id" = ?[0m  [["game_id", 2]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mConsole Load (0.1ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles" INNER JOIN "console_games" ON "consoles"."id" = "console_games"."console_id" WHERE "console_games"."game_id" = ?[0m  [["game_id", 2]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."game_id" = ?[0m  [["game_id", 3]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."game_id" = ?[0m  [["game_id", 3]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mConsoleGame Load (0.1ms)[0m  [1m[34mSELECT "console_games".* FROM "console_games" WHERE "console_games"."game_id" = ?[0m  [["game_id", 3]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mConsole Load (0.3ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles" INNER JOIN "console_games" ON "consoles"."id" = "console_games"."console_id" WHERE "console_games"."game_id" = ?[0m  [["game_id", 3]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."game_id" = ?[0m  [["game_id", 4]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."game_id" = ?[0m  [["game_id", 4]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mConsoleGame Load (0.1ms)[0m  [1m[34mSELECT "console_games".* FROM "console_games" WHERE "console_games"."game_id" = ?[0m  [["game_id", 4]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mConsole Load (0.1ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles" INNER JOIN "console_games" ON "consoles"."id" = "console_games"."console_id" WHERE "console_games"."game_id" = ?[0m  [["game_id", 4]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."game_id" = ?[0m  [["game_id", 5]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."game_id" = ?[0m  [["game_id", 5]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mConsoleGame Load (0.1ms)[0m  [1m[34mSELECT "console_games".* FROM "console_games" WHERE "console_games"."game_id" = ?[0m  [["game_id", 5]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mConsole Load (0.1ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles" INNER JOIN "console_games" ON "consoles"."id" = "console_games"."console_id" WHERE "console_games"."game_id" = ?[0m  [["game_id", 5]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."game_id" = ?[0m  [["game_id", 6]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."game_id" = ?[0m  [["game_id", 6]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mConsoleGame Load (0.5ms)[0m  [1m[34mSELECT "console_games".* FROM "console_games" WHERE "console_games"."game_id" = ?[0m  [["game_id", 6]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mConsole Load (0.1ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles" INNER JOIN "console_games" ON "consoles"."id" = "console_games"."console_id" WHERE "console_games"."game_id" = ?[0m  [["game_id", 6]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."game_id" = ?[0m  [["game_id", 7]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."game_id" = ?[0m  [["game_id", 7]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mConsoleGame Load (0.1ms)[0m  [1m[34mSELECT "console_games".* FROM "console_games" WHERE "console_games"."game_id" = ?[0m  [["game_id", 7]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mConsole Load (0.1ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles" INNER JOIN "console_games" ON "consoles"."id" = "console_games"."console_id" WHERE "console_games"."game_id" = ?[0m  [["game_id", 7]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."game_id" = ?[0m  [["game_id", 8]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."game_id" = ?[0m  [["game_id", 8]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mConsoleGame Load (0.2ms)[0m  [1m[34mSELECT "console_games".* FROM "console_games" WHERE "console_games"."game_id" = ?[0m  [["game_id", 8]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mConsole Load (0.3ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles" INNER JOIN "console_games" ON "consoles"."id" = "console_games"."console_id" WHERE "console_games"."game_id" = ?[0m  [["game_id", 8]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."game_id" = ?[0m  [["game_id", 9]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."game_id" = ?[0m  [["game_id", 9]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mConsoleGame Load (0.5ms)[0m  [1m[34mSELECT "console_games".* FROM "console_games" WHERE "console_games"."game_id" = ?[0m  [["game_id", 9]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mConsole Load (0.3ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles" INNER JOIN "console_games" ON "consoles"."id" = "console_games"."console_id" WHERE "console_games"."game_id" = ?[0m  [["game_id", 9]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."game_id" = ?[0m  [["game_id", 10]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."game_id" = ?[0m  [["game_id", 10]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mConsoleGame Load (0.2ms)[0m  [1m[34mSELECT "console_games".* FROM "console_games" WHERE "console_games"."game_id" = ?[0m  [["game_id", 10]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mConsole Load (0.1ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles" INNER JOIN "console_games" ON "consoles"."id" = "console_games"."console_id" WHERE "console_games"."game_id" = ?[0m  [["game_id", 10]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mReview Load (0.6ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."game_id" = ?[0m  [["game_id", 11]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."game_id" = ?[0m  [["game_id", 11]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mConsoleGame Load (0.1ms)[0m  [1m[34mSELECT "console_games".* FROM "console_games" WHERE "console_games"."game_id" = ?[0m  [["game_id", 11]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mConsole Load (0.2ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles" INNER JOIN "console_games" ON "consoles"."id" = "console_games"."console_id" WHERE "console_games"."game_id" = ?[0m  [["game_id", 11]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (176.85ms)
+Completed 200 OK in 188ms (Views: 173.4ms | ActiveRecord: 14.1ms)
+
+
+Started GET "/games" for 127.0.0.1 at 2019-02-18 13:20:35 -0800
+Processing by GamesController#index as HTML
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (4.9ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:43
+  [1m[36mConsole Load (4.9ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles"[0m
+  ↳ app/views/games/index.html.erb:64
+  Rendered games/index.html.erb within layouts/application (84.0ms)
+Completed 200 OK in 204ms (Views: 192.8ms | ActiveRecord: 9.8ms)
+
+
+Started GET "/games.json" for 127.0.0.1 at 2019-02-18 13:20:39 -0800
+Processing by GamesController#index as JSON
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mGame Load (0.6ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."game_id" = ?[0m  [["game_id", 1]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mUser Load (8.8ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."game_id" = ?[0m  [["game_id", 1]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mConsoleGame Load (0.5ms)[0m  [1m[34mSELECT "console_games".* FROM "console_games" WHERE "console_games"."game_id" = ?[0m  [["game_id", 1]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mConsole Load (0.5ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles" INNER JOIN "console_games" ON "consoles"."id" = "console_games"."console_id" WHERE "console_games"."game_id" = ?[0m  [["game_id", 1]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."game_id" = ?[0m  [["game_id", 2]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."game_id" = ?[0m  [["game_id", 2]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mConsoleGame Load (0.5ms)[0m  [1m[34mSELECT "console_games".* FROM "console_games" WHERE "console_games"."game_id" = ?[0m  [["game_id", 2]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mConsole Load (0.2ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles" INNER JOIN "console_games" ON "consoles"."id" = "console_games"."console_id" WHERE "console_games"."game_id" = ?[0m  [["game_id", 2]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."game_id" = ?[0m  [["game_id", 3]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mUser Load (4.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."game_id" = ?[0m  [["game_id", 3]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mConsoleGame Load (0.7ms)[0m  [1m[34mSELECT "console_games".* FROM "console_games" WHERE "console_games"."game_id" = ?[0m  [["game_id", 3]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mConsole Load (0.2ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles" INNER JOIN "console_games" ON "consoles"."id" = "console_games"."console_id" WHERE "console_games"."game_id" = ?[0m  [["game_id", 3]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."game_id" = ?[0m  [["game_id", 4]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."game_id" = ?[0m  [["game_id", 4]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mConsoleGame Load (0.1ms)[0m  [1m[34mSELECT "console_games".* FROM "console_games" WHERE "console_games"."game_id" = ?[0m  [["game_id", 4]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mConsole Load (0.1ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles" INNER JOIN "console_games" ON "consoles"."id" = "console_games"."console_id" WHERE "console_games"."game_id" = ?[0m  [["game_id", 4]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."game_id" = ?[0m  [["game_id", 5]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."game_id" = ?[0m  [["game_id", 5]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mConsoleGame Load (0.7ms)[0m  [1m[34mSELECT "console_games".* FROM "console_games" WHERE "console_games"."game_id" = ?[0m  [["game_id", 5]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mConsole Load (0.1ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles" INNER JOIN "console_games" ON "consoles"."id" = "console_games"."console_id" WHERE "console_games"."game_id" = ?[0m  [["game_id", 5]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."game_id" = ?[0m  [["game_id", 6]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."game_id" = ?[0m  [["game_id", 6]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mConsoleGame Load (0.4ms)[0m  [1m[34mSELECT "console_games".* FROM "console_games" WHERE "console_games"."game_id" = ?[0m  [["game_id", 6]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mConsole Load (0.6ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles" INNER JOIN "console_games" ON "consoles"."id" = "console_games"."console_id" WHERE "console_games"."game_id" = ?[0m  [["game_id", 6]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."game_id" = ?[0m  [["game_id", 7]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."game_id" = ?[0m  [["game_id", 7]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mConsoleGame Load (0.2ms)[0m  [1m[34mSELECT "console_games".* FROM "console_games" WHERE "console_games"."game_id" = ?[0m  [["game_id", 7]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mConsole Load (0.2ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles" INNER JOIN "console_games" ON "consoles"."id" = "console_games"."console_id" WHERE "console_games"."game_id" = ?[0m  [["game_id", 7]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."game_id" = ?[0m  [["game_id", 8]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."game_id" = ?[0m  [["game_id", 8]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mConsoleGame Load (0.3ms)[0m  [1m[34mSELECT "console_games".* FROM "console_games" WHERE "console_games"."game_id" = ?[0m  [["game_id", 8]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mConsole Load (0.2ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles" INNER JOIN "console_games" ON "consoles"."id" = "console_games"."console_id" WHERE "console_games"."game_id" = ?[0m  [["game_id", 8]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."game_id" = ?[0m  [["game_id", 9]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."game_id" = ?[0m  [["game_id", 9]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mConsoleGame Load (0.2ms)[0m  [1m[34mSELECT "console_games".* FROM "console_games" WHERE "console_games"."game_id" = ?[0m  [["game_id", 9]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mConsole Load (1.3ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles" INNER JOIN "console_games" ON "consoles"."id" = "console_games"."console_id" WHERE "console_games"."game_id" = ?[0m  [["game_id", 9]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."game_id" = ?[0m  [["game_id", 10]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."game_id" = ?[0m  [["game_id", 10]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mConsoleGame Load (0.1ms)[0m  [1m[34mSELECT "console_games".* FROM "console_games" WHERE "console_games"."game_id" = ?[0m  [["game_id", 10]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mConsole Load (0.2ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles" INNER JOIN "console_games" ON "consoles"."id" = "console_games"."console_id" WHERE "console_games"."game_id" = ?[0m  [["game_id", 10]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."game_id" = ?[0m  [["game_id", 11]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."game_id" = ?[0m  [["game_id", 11]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mConsoleGame Load (0.2ms)[0m  [1m[34mSELECT "console_games".* FROM "console_games" WHERE "console_games"."game_id" = ?[0m  [["game_id", 11]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mConsole Load (0.2ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles" INNER JOIN "console_games" ON "consoles"."id" = "console_games"."console_id" WHERE "console_games"."game_id" = ?[0m  [["game_id", 11]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (305.04ms)
+Completed 200 OK in 330ms (Views: 294.5ms | ActiveRecord: 26.1ms)
+
+
+Started GET "/games" for 127.0.0.1 at 2019-02-18 13:31:38 -0800
+Processing by GamesController#index as HTML
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:43
+  [1m[36mConsole Load (0.4ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles"[0m
+  ↳ app/views/games/index.html.erb:64
+  Rendered games/index.html.erb within layouts/application (36.5ms)
+Completed 200 OK in 186ms (Views: 184.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/games" for 127.0.0.1 at 2019-02-18 13:33:17 -0800
+Processing by GamesController#index as HTML
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.7ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:43
+  [1m[36mConsole Load (0.3ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles"[0m
+  ↳ app/views/games/index.html.erb:64
+  Rendered games/index.html.erb within layouts/application (36.2ms)
+Completed 200 OK in 204ms (Views: 198.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/games.json" for 127.0.0.1 at 2019-02-18 13:33:21 -0800
+Processing by GamesController#index as JSON
+  [1m[36mUser Load (3.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mGame Load (0.9ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mReview Load (0.8ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."game_id" = ?[0m  [["game_id", 1]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."game_id" = ?[0m  [["game_id", 1]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mConsoleGame Load (0.4ms)[0m  [1m[34mSELECT "console_games".* FROM "console_games" WHERE "console_games"."game_id" = ?[0m  [["game_id", 1]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mConsole Load (3.4ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles" INNER JOIN "console_games" ON "consoles"."id" = "console_games"."console_id" WHERE "console_games"."game_id" = ?[0m  [["game_id", 1]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."game_id" = ?[0m  [["game_id", 2]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."game_id" = ?[0m  [["game_id", 2]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mConsoleGame Load (0.3ms)[0m  [1m[34mSELECT "console_games".* FROM "console_games" WHERE "console_games"."game_id" = ?[0m  [["game_id", 2]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mConsole Load (0.3ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles" INNER JOIN "console_games" ON "consoles"."id" = "console_games"."console_id" WHERE "console_games"."game_id" = ?[0m  [["game_id", 2]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."game_id" = ?[0m  [["game_id", 3]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."game_id" = ?[0m  [["game_id", 3]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mConsoleGame Load (0.2ms)[0m  [1m[34mSELECT "console_games".* FROM "console_games" WHERE "console_games"."game_id" = ?[0m  [["game_id", 3]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mConsole Load (0.2ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles" INNER JOIN "console_games" ON "consoles"."id" = "console_games"."console_id" WHERE "console_games"."game_id" = ?[0m  [["game_id", 3]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."game_id" = ?[0m  [["game_id", 4]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."game_id" = ?[0m  [["game_id", 4]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mConsoleGame Load (0.1ms)[0m  [1m[34mSELECT "console_games".* FROM "console_games" WHERE "console_games"."game_id" = ?[0m  [["game_id", 4]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mConsole Load (0.1ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles" INNER JOIN "console_games" ON "consoles"."id" = "console_games"."console_id" WHERE "console_games"."game_id" = ?[0m  [["game_id", 4]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."game_id" = ?[0m  [["game_id", 5]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."game_id" = ?[0m  [["game_id", 5]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mConsoleGame Load (0.2ms)[0m  [1m[34mSELECT "console_games".* FROM "console_games" WHERE "console_games"."game_id" = ?[0m  [["game_id", 5]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mConsole Load (0.4ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles" INNER JOIN "console_games" ON "consoles"."id" = "console_games"."console_id" WHERE "console_games"."game_id" = ?[0m  [["game_id", 5]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."game_id" = ?[0m  [["game_id", 6]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."game_id" = ?[0m  [["game_id", 6]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mConsoleGame Load (0.4ms)[0m  [1m[34mSELECT "console_games".* FROM "console_games" WHERE "console_games"."game_id" = ?[0m  [["game_id", 6]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mConsole Load (0.1ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles" INNER JOIN "console_games" ON "consoles"."id" = "console_games"."console_id" WHERE "console_games"."game_id" = ?[0m  [["game_id", 6]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."game_id" = ?[0m  [["game_id", 7]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."game_id" = ?[0m  [["game_id", 7]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mConsoleGame Load (0.2ms)[0m  [1m[34mSELECT "console_games".* FROM "console_games" WHERE "console_games"."game_id" = ?[0m  [["game_id", 7]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mConsole Load (0.4ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles" INNER JOIN "console_games" ON "consoles"."id" = "console_games"."console_id" WHERE "console_games"."game_id" = ?[0m  [["game_id", 7]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."game_id" = ?[0m  [["game_id", 8]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."game_id" = ?[0m  [["game_id", 8]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mConsoleGame Load (0.2ms)[0m  [1m[34mSELECT "console_games".* FROM "console_games" WHERE "console_games"."game_id" = ?[0m  [["game_id", 8]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mConsole Load (0.2ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles" INNER JOIN "console_games" ON "consoles"."id" = "console_games"."console_id" WHERE "console_games"."game_id" = ?[0m  [["game_id", 8]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."game_id" = ?[0m  [["game_id", 9]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."game_id" = ?[0m  [["game_id", 9]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mConsoleGame Load (0.2ms)[0m  [1m[34mSELECT "console_games".* FROM "console_games" WHERE "console_games"."game_id" = ?[0m  [["game_id", 9]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mConsole Load (0.2ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles" INNER JOIN "console_games" ON "consoles"."id" = "console_games"."console_id" WHERE "console_games"."game_id" = ?[0m  [["game_id", 9]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."game_id" = ?[0m  [["game_id", 10]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."game_id" = ?[0m  [["game_id", 10]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mConsoleGame Load (0.2ms)[0m  [1m[34mSELECT "console_games".* FROM "console_games" WHERE "console_games"."game_id" = ?[0m  [["game_id", 10]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mConsole Load (0.1ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles" INNER JOIN "console_games" ON "consoles"."id" = "console_games"."console_id" WHERE "console_games"."game_id" = ?[0m  [["game_id", 10]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mReview Load (0.5ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."game_id" = ?[0m  [["game_id", 11]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."game_id" = ?[0m  [["game_id", 11]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mConsoleGame Load (0.1ms)[0m  [1m[34mSELECT "console_games".* FROM "console_games" WHERE "console_games"."game_id" = ?[0m  [["game_id", 11]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers]   [1m[36mConsole Load (0.2ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles" INNER JOIN "console_games" ON "consoles"."id" = "console_games"."console_id" WHERE "console_games"."game_id" = ?[0m  [["game_id", 11]]
+[active_model_serializers]   ↳ app/controllers/games_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (323.9ms)
+Completed 200 OK in 358ms (Views: 335.8ms | ActiveRecord: 20.9ms)
+
+
