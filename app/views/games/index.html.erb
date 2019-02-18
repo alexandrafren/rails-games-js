@@ -37,7 +37,7 @@
 		<% end %>
 <% end %>
 
-<button class="alphabetize-games">Alphabetize Games</button>
+<button id="alphabetize-games">Alphabetize Games</button>
 <h4>Games:</h4>
 <div>
 	<div>
@@ -87,6 +87,9 @@ function Console(name){
 	this.name = name;
 }
 
+
+	$("#alphabetize-games").on("click", function() {
+	});
 
 	$(".js-more").on("click", function() {
 		   	const id = $(this).data("id");
