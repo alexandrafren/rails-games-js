@@ -37,7 +37,7 @@
 		<% end %>
 <% end %>
 
-
+<button class="alphabetize-games">Alphabetize Games</button>
 <h4>Games:</h4>
 <div>
 	<div>
@@ -70,11 +70,16 @@
 
 
 <script>
-function Game(id, name, release_year, consoles){
-	this.id = id;
-	this.name = name;
-	this.release_year = release_year;
-	this.consoles = consoles;
+class Game {
+	constructor(id, name, release_year, consoles){
+		this.id = id;
+		this.name = name;
+		this.release_year = release_year;
+		this.consoles = consoles;
+	}
+	moreinfo(){
+		return "<h3>" + this.name + "</h3><p>" + this.release_year + "</p><p>Available On: " + this.consoles + "</p><a href='/games/" + this.id + "'>See Ratings & Reviews</a>"
+	};
 };
 
 
@@ -82,14 +87,10 @@ function Console(name){
 	this.name = name;
 }
 
-Game.prototype.moreinfo = function() {
-		return "<h3>" + this.name + "</h3><p>" + this.release_year + "</p><p>Available On: " + this.consoles + "</p><a href='/games/" + this.id + "'>See Ratings & Reviews</a>"
-};
-
 
 	$(".js-more").on("click", function() {
 		   	const id = $(this).data("id");
-			$.get("/games/" + id + ".json", function(obj) {
+			$.get("/games/" + id, function(obj) {
 					let consoles = "";
 					obj["consoles"].forEach(function(console){
 						let x = new Console(console["name"]);
@@ -97,7 +98,7 @@ Game.prototype.moreinfo = function() {
 					})
 					let thisgame = new Game(id, obj["name"], obj["release_year"], consoles)
 					$("#game-" + id).html(thisgame.moreinfo());
-		})
+		}, "json")
 	});
 
 

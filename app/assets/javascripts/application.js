@@ -13,7 +13,7 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-//= require_tree .
-//= require games
 //= require jquery
 //= require jquery_ujs
+//= require_tree .
+console.log("test");
