@@ -81,7 +81,7 @@ class Game {
 	};
 
 	buttonHTML() {
-		return "<div id='game-" + y.id +"'> <button class='js-more' data-id='" + y.id + "'>" + y.name + "</button></div>"
+		return "<div id='game-" + this.id +"'> <button class='js-more' data-id='" + this.id + "'>" + this.name + "</button></div>"
 	}
 };
 
@@ -119,8 +119,9 @@ function compare(a, b) {
 
 	$("#alphabetize-games").on("click", function(){
 		let counter = 0;
-		let gamesHTML = "";
+		let gamesHTML = [];
 		$.get("/games.json", function(obj){
+			obj.sort(compare);
 			while(counter < Object.keys(obj).length){
 				let consoles = "";
 				let object = obj[counter];
@@ -129,10 +130,10 @@ function compare(a, b) {
 					consoles += " " + x.name ;
 				})
 				let y = new Game(object["id"], object["name"], object["release_year"], consoles);
-				
-				console.log(gamesHTML)
+				gamesHTML += y.buttonHTML();
 				counter += 1;
-			}
+			}			
+			$("#games-container").html(gamesHTML);
 		})
 	});
 
