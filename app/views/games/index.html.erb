@@ -38,11 +38,12 @@
 <% end %>
 
 <button id="alphabetize-games">Alphabetize Games</button>
+
 <h4>Games:</h4>
 <div id="games-container">
 <% @games.each do |g| %>
 	<div id="game-<%=  g.id %>">
-		<button class="js-more" data-id="<%= g.id %>"><%= g.name %></button>
+		<button data-id="<%= g.id %>"><%= g.name %></button>
 	</div>
 <% end %>
 </div>
@@ -81,7 +82,7 @@ class Game {
 	};
 
 	buttonHTML() {
-		return "<div id='game-" + this.id +"'> <button class='js-more' data-id='" + this.id + "'>" + this.name + "</button></div>"
+		return "<div id='game-" + this.id +"'> <button data-id='" + this.id + "'>" + this.name + "</button></div>"
 	}
 };
 
@@ -104,7 +105,7 @@ function compare(a, b) {
 }
 
 
-	$(".js-more").on("click", function() {
+	$("#games-container").on("click", "button",  function() {
 		   	const id = $(this).data("id");
 			$.get("/games/" + id + ".json", function(obj) {
 					let consoles = "";
