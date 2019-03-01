@@ -119,21 +119,13 @@ function compare(a, b) {
 	});
 
 	$("#alphabetize-games").on("click", function(){
-		let counter = 0;
 		let gamesHTML = [];
 		$.get("/games.json", function(obj){
 			obj.sort(compare);
-			while(counter < Object.keys(obj).length){
-				let consoles = "";
-				let object = obj[counter];
-				object["consoles"].forEach(function(console){
-					let x = new Console(console["name"]);
-					consoles += " " + x.name ;
-				})
-				let y = new Game(object["id"], object["name"], object["release_year"], consoles);
+			obj.filter(game => game.name[0].toUpperCase() === "P").forEach(function(object){
+				let y = new Game(object["id"], object["name"], object["release_year"]);
 				gamesHTML += y.buttonHTML();
-				counter += 1;
-			}			
+			})		
 			$("#games-container").html(gamesHTML);
 		})
 	});
