@@ -7,6 +7,21 @@
     <link rel="stylesheet" href="/layout.css">
     <%= javascript_include_tag 'application' %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <script type="text/javascript" src="https://www.datadoghq-browser-agent.com/datadog-logs-us.js"></script>
+    <script>
+        // prevent any issues in case of a loading failure of the library
+        if (window.DD_LOGS) {
+            // Set your client token
+            DD_LOGS.init({
+                clientToken: 'puba62fc5e31e5665a383ea82196c15c523',
+                forwardErrorsToLogs: true,
+            });
+
+            // OPTIONAL
+            // add global metadata attributes
+            DD_LOGS.addLoggerGlobalContext('service', 'browser');
+        }
+    </script>
   </head>
 
   <body>
